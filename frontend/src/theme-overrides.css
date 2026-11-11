@@ -559,3 +559,112 @@ button, a, .requirement-guidance-link, .document-card {
   position: fixed;
   inset: 0 0 auto 0;
 }
+
+
+/* Logout button: soft red */
+.portal-user-actions button {
+  background: #fecaca !important;
+  color: #7f1d1d !important;
+  border: 1px solid #fca5a5;
+}
+.portal-user-actions button:hover {
+  background: #fca5a5 !important;
+  color: #7f1d1d !important;
+}
+
+/* Forgot password card aligned to the right, like the registration panel */
+.auth-layout-forgotpassword {
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px clamp(18px, 4vw, 64px);
+}
+.auth-layout-forgotpassword .auth-card-forgotpassword {
+  width: min(460px, 100%);
+  max-height: calc(100vh - 125px);
+  overflow-y: auto;
+  margin-inline-end: auto;
+  margin-block: 4px;
+  padding: 25px 28px;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 18px 55px rgba(5,24,58,.28);
+  backdrop-filter: blur(8px);
+}
+@media (max-width: 760px) {
+  .auth-layout-forgotpassword {
+    justify-content: center;
+    align-items: flex-start;
+    padding: 14px;
+  }
+  .auth-layout-forgotpassword .auth-card-forgotpassword {
+    margin: 0;
+    max-height: calc(100vh - 115px);
+    padding: 22px 18px;
+  }
+}
+
+/* Softer review action buttons, retaining blue / green / red meaning */
+.admin-status-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.admin-status-buttons .admin-status {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 11px 18px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease, opacity 180ms ease;
+}
+.admin-status-buttons .admin-status:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+.admin-status-buttons .admin-status:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+.admin-status-buttons .admin-status.review {
+  color: #315b83;
+  background: #e4edf6;
+  border-color: #c8d9e9;
+}
+.admin-status-buttons .admin-status.review:hover:not(:disabled) {
+  background: #d5e3f0;
+}
+.admin-status-buttons .admin-status.approve {
+  color: #276749;
+  background: #e1f1e8;
+  border-color: #c3e2d0;
+}
+.admin-status-buttons .admin-status.approve:hover:not(:disabled) {
+  background: #d1e9dc;
+}
+.admin-status-buttons .admin-status.reject {
+  color: #963f46;
+  background: #f8e5e6;
+  border-color: #edc8cb;
+}
+.admin-status-buttons .admin-status.reject:hover:not(:disabled) {
+  background: #f2d5d7;
+}
+@media (max-width: 600px) {
+  .admin-status-buttons {
+    flex-direction: column;
+  }
+  .admin-status-buttons .admin-status {
+    width: 100%;
+  }
+}
+
+/* Reviewer can remove a request from their own queue only */
+.admin-hide-button {
+  color: #963f46;
+  background: #f8e5e6;
+  border-color: #edc8cb;
+}
+.admin-hide-button:hover {
+  background: #f2d5d7;
+  border-color: #e5b4b8;
+}
