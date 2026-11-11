@@ -243,3 +243,70 @@ button, a, .requirement-guidance-link, .document-card {
 @media (max-width: 780px) {
   .dashboard-card { min-height: 190px; }
 }
+
+
+/* Public authentication actions: compact, visible above the background video */
+.portal-app-header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.portal-auth-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-inline-start: auto;
+}
+.portal-auth-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 9px 16px;
+  border: 1px solid #d6e4fb;
+  border-radius: 12px;
+  background: rgba(255,255,255,.94);
+  color: #244b87;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 5px 16px rgba(23, 59, 117, .08);
+  transition: transform 240ms ease, box-shadow 240ms ease, background 240ms ease;
+}
+.portal-auth-nav a:hover {
+  transform: translateY(-3px);
+  background: #eff6ff;
+  box-shadow: 0 10px 22px rgba(23, 59, 117, .15);
+}
+.portal-auth-nav .portal-register-link {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #fff;
+}
+.portal-auth-nav .portal-register-link:hover {
+  background: #1d4ed8;
+  color: #fff;
+}
+.portal-auth-nav .portal-forgot-link {
+  border-color: transparent;
+  background: transparent;
+  color: #526b91;
+  box-shadow: none;
+  padding-inline: 10px;
+}
+.portal-auth-nav .portal-forgot-link:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
+  box-shadow: none;
+}
+@media (max-width: 780px) {
+  .portal-app-header { justify-content: center; padding: 12px 16px; }
+  .portal-brand-link { max-width: 100%; }
+  .portal-auth-nav { width: 100%; justify-content: center; gap: 7px; }
+  .portal-auth-nav a { min-height: 40px; padding: 8px 12px; font-size: 13px; }
+}
