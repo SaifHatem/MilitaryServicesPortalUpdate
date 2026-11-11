@@ -310,3 +310,32 @@ button, a, .requirement-guidance-link, .document-card {
   .portal-auth-nav { width: 100%; justify-content: center; gap: 7px; }
   .portal-auth-nav a { min-height: 40px; padding: 8px 12px; font-size: 13px; }
 }
+
+
+/* Unobstructed public video landing page */
+.public-video-page {
+  position: relative;
+  min-height: calc(100vh - 88px);
+  overflow: hidden;
+  isolation: isolate;
+}
+.public-video-content {
+  position: relative;
+  z-index: 2;
+  width: min(900px, 92%);
+  margin: auto;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 3px 18px rgba(0,0,0,.35);
+  pointer-events: none;
+}
+.public-video-content h1 {
+  margin: 0 0 14px;
+  font-size: clamp(30px, 5vw, 56px);
+  font-weight: 800;
+}
+.public-video-content p {
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.8;
+  color: rgba(255,255,255,.92);
+}
