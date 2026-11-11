@@ -356,7 +356,7 @@ function AdminDashboard() {
                         className="admin-hide-button"
                         onClick={() => hideFromMyQueue(application)}
                       >
-                        إخفاء من قائمتي
+                        حذف من قائمتي
                       </button>
                     )}
                   </div>
