@@ -7,6 +7,7 @@ import { AuthProvider } from "./context/AuthContext";
 import "./index.css";
 import "./App.css";
 import "./theme-overrides.css";
+import "./service-consistency.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
