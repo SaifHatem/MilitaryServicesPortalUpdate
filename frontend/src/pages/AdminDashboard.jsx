@@ -340,7 +340,7 @@ function AdminDashboard() {
                     </div>
                   </div>
 
-                  <div className="admin-application-footer">
+                  <div className="admin-application-footer admin-application-actions">
                     <button
                       type="button"
                       className="admin-view-button"
@@ -354,9 +354,10 @@ function AdminDashboard() {
                       <button
                         type="button"
                         className="admin-hide-button"
+                        title="إزالة الطلب من قائمة المراجعة الخاصة بك فقط"
                         onClick={() => hideFromMyQueue(application)}
                       >
-                        حذف من قائمتي
+                        حذف الطلب من قائمتي
                       </button>
                     )}
                   </div>
