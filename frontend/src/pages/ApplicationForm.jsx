@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../services/api";
+import { getServiceThemeStyle } from "../utils/serviceTheme";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
@@ -340,7 +341,7 @@ const ApplicationForm = () => {
   }
 
   return (
-    <div className="application-page" style={{ "--service-color": service?.themeColor || "#527C78" }}>
+    <div className="application-page" style={getServiceThemeStyle(service)}>
       <div className="application-header">
         <button
           className="back-button"
@@ -381,7 +382,7 @@ const ApplicationForm = () => {
                 const canAddMoreFiles = requirementFiles.length < maxFiles;
 
                 return (
-                  <div className="upload-item" key={requirement._id} style={{ "--service-color": service?.themeColor || "#527C78" }}>
+                  <div className="upload-item" key={requirement._id} style={getServiceThemeStyle(service)}>
                     <div className="upload-item-number">{index + 1}</div>
 
                     <div className="upload-item-content">
