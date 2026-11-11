@@ -1,10 +1,31 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import AuthorityBrand from "./AuthorityBrand";
 
 const AppHeader = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, login } = useAuth();
+  const [nationalId, setNationalId] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const [loginLoading, setLoginLoading] = useState(false);
   const navigate = useNavigate();
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    setLoginError("");
+    setLoginLoading(true);
+    try {
+      await login(nationalId.trim(), password);
+      setNationalId("");
+      setPassword("");
+      navigate("/dashboard");
+    } catch (err) {
+      setLoginError(err.response?.data?.message || "الرقم القومي أو كلمة المرور غير صحيحة.");
+    } finally {
+      setLoginLoading(false);
+    }
+  };
+
   const handleLogout = () => {
     logout();
     navigate("/login");
@@ -40,15 +61,37 @@ const AppHeader = () => {
           </div>
         </>
       ) : (
-        <nav className="portal-auth-nav" aria-label="حساب المستخدم">
-          <NavLink to="/sign-in">تسجيل الدخول</NavLink>
-          <NavLink to="/register" className="portal-register-link">
-            إنشاء حساب جديد
-          </NavLink>
-          <NavLink to="/forgot-password" className="portal-forgot-link">
-            نسيت كلمة المرور؟
-          </NavLink>
-        </nav>
+        <div className="portal-auth-area">
+          <form className="portal-inline-login" onSubmit={handleLogin}>
+            <input
+              type="text"
+              inputMode="numeric"
+              autoComplete="username"
+              aria-label="الرقم القومي"
+              placeholder="الرقم القومي"
+              value={nationalId}
+              onChange={(event) => setNationalId(event.target.value)}
+              required
+            />
+            <input
+              type="password"
+              autoComplete="current-password"
+              aria-label="كلمة المرور"
+              placeholder="كلمة المرور"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+            />
+            <button type="submit" disabled={loginLoading}>
+              {loginLoading ? "جارٍ الدخول..." : "تسجيل الدخول"}
+            </button>
+          </form>
+          <div className="portal-auth-links">
+            <NavLink to="/register" className="portal-register-link">إنشاء حساب جديد</NavLink>
+            <NavLink to="/forgot-password" className="portal-forgot-link">نسيت كلمة المرور؟</NavLink>
+          </div>
+          {loginError && <p className="portal-login-error" role="alert">{loginError}</p>}
+        </div>
       )}
     </header>
   );
