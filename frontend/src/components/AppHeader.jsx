@@ -46,7 +46,7 @@ const AppHeader = () => {
             <NavLink to="/services">الخدمات</NavLink>
             <NavLink to="/applications">طلباتي</NavLink>
             {["admin", "reviewer"].includes(user.role) && (
-              <NavLink to="/admin">مراجعة الطلبات</NavLink>
+              <NavLink to="/admin" end>مراجعة الطلبات</NavLink>
             )}
             {user.role === "admin" && (
               <NavLink to="/admin/users">إدارة المستخدمين</NavLink>
