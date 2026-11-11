@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "./pages/Login";
+import Welcome from "./pages/Welcome";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 
@@ -27,7 +28,8 @@ const App = () => (
       <Route path="/" element={<Navigate to="/login" replace />} />
 
       {/* Authentication */}
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Welcome />} />
+      <Route path="/sign-in" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
 
