@@ -561,15 +561,15 @@ button, a, .requirement-guidance-link, .document-card {
 }
 
 
-/* Logout button: soft red */
+/* Logout button: clear red */
 .portal-user-actions button {
-  background: #fecaca !important;
-  color: #7f1d1d !important;
-  border: 1px solid #fca5a5;
+  background: #dc2626 !important;
+  color: #ffffff !important;
+  border: 1px solid #b91c1c;
 }
 .portal-user-actions button:hover {
-  background: #fca5a5 !important;
-  color: #7f1d1d !important;
+  background: #b91c1c !important;
+  color: #ffffff !important;
 }
 
 /* Forgot password card aligned to the right, like the registration panel */
@@ -626,12 +626,12 @@ button, a, .requirement-guidance-link, .document-card {
   cursor: wait;
 }
 .admin-status-buttons .admin-status.review {
-  color: #315b83;
-  background: #e4edf6;
-  border-color: #c8d9e9;
+  color: #805b12;
+  background: #fff3cd;
+  border-color: #f2d58a;
 }
 .admin-status-buttons .admin-status.review:hover:not(:disabled) {
-  background: #d5e3f0;
+  background: #ffe8a3;
 }
 .admin-status-buttons .admin-status.approve {
   color: #276749;
