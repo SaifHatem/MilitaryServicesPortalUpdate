@@ -225,7 +225,7 @@ router.post(
 
       if (!requirementId || !message?.trim()) {
         return res.status(400).json({
-          message: "من فضلك اختر المستند واكتب سبب التصحيح",
+          message: "من فضلك اختر المستند وحدد الإجراء المتخذ",
         });
       }
 
