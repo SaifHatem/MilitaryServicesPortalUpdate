@@ -8,6 +8,7 @@ const ServiceRequirement = require("../models/ServiceRequirement");
 const ApplicationFile = require("../models/ApplicationFile");
 const User = require("../models/User");
 const { canAccessService } = require("../utils/serviceAccess");
+const { notifyReviewers, notifyApplicant } = require("../utils/notifications");
 
 const authenticate = require("../middleware/authMiddleware");
 const reviewerOnly = require("../middleware/reviewerMiddleware");
@@ -287,6 +288,13 @@ router.post(
 
       await application.save();
 
+      await notifyApplicant({
+        application,
+        type: "needs_correction",
+        title: "طلبك يحتاج إلى تعديل",
+        message: `يرجى مراجعة الملاحظات واستكمال التعديلات المطلوبة على طلبك.`,
+      });
+
       const updatedApplication = await Application.findById(application._id)
         .populate("serviceId")
         .populate("corrections.requirementId");
@@ -478,6 +486,28 @@ router.patch("/:id/status", authenticate, reviewerOnly, async (req, res) => {
 
     await application.save();
 
+    const statusNotifications = {
+      under_review: {
+        type: "under_review",
+        title: "بدأت مراجعة طلبك",
+        message: "تم استلام طلبك وبدأت مراجعته.",
+      },
+      approved: {
+        type: "approved",
+        title: "تم قبول طلبك",
+        message: "تمت الموافقة على طلبك.",
+      },
+      rejected: {
+        type: "rejected",
+        title: "تم رفض طلبك",
+        message: "تم رفض طلبك. يمكنك مراجعة تفاصيل الطلب لمعرفة الحالة.",
+      },
+    };
+    const notification = statusNotifications[status];
+    if (notification) {
+      await notifyApplicant({ application, ...notification });
+    }
+
     res.json({
       message: "تم تحديث حالة الطلب بنجاح",
       application,
@@ -607,6 +637,15 @@ router.post("/:id/submit", authenticate, async (req, res) => {
     application.status = "submitted";
 
     await application.save();
+
+    await notifyReviewers({
+      application,
+      type: isResubmission ? "application_resubmitted" : "new_application",
+      title: isResubmission ? "تم تعديل طلب وإعادة إرساله" : "طلب جديد يحتاج إلى مراجعة",
+      message: isResubmission
+        ? `قام ${application.applicantName} بتعديل الطلب وإعادة إرساله للمراجعة.`
+        : `قام ${application.applicantName} بتقديم طلب جديد ويحتاج إلى مراجعتك.`,
+    });
 
     res.json({
       message: isResubmission
