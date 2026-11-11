@@ -1,0 +1,239 @@
+/* =========================================================
+   MILITARY SERVICES PORTAL - BLUE & SOFT PASTEL THEME
+   Visual-only overrides. Existing JSX and application logic stay unchanged.
+========================================================= */
+
+:root {
+  --portal-ink: #172b4d;
+  --portal-muted: #64748b;
+  --portal-primary: #2563eb;
+  --portal-primary-dark: #1d4ed8;
+  --portal-surface: #ffffff;
+  --portal-border: #dbeafe;
+  --portal-shadow: 0 18px 48px rgba(37, 99, 235, 0.10);
+  --theme-blue: #2563eb;
+  --theme-blue-dark: #1e40af;
+  --theme-blue-soft: #eff6ff;
+}
+
+body {
+  background: #f4f8ff;
+  color: var(--portal-ink);
+}
+
+.portal-app-header {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom-color: #dbeafe;
+  box-shadow: 0 7px 28px rgba(30, 64, 175, 0.09);
+}
+
+.portal-app-header .authority-brand-text h1 { color: #1e3a8a; }
+.portal-app-header .authority-brand-text p { color: #7186a8; }
+
+.portal-nav a,
+.portal-auth-nav a,
+.portal-icon-link { color: #425a7d; }
+
+.portal-nav a:hover,
+.portal-auth-nav a:hover,
+.portal-icon-link:hover,
+.portal-nav a.active,
+.portal-auth-nav a.active {
+  color: #1d4ed8;
+  background: #eaf2ff;
+}
+
+.portal-user-actions button,
+.portal-register-link,
+.auth-card button[type="submit"],
+.upload-correction-button,
+.start-edit-button,
+.resubmit-container button,
+.start-application-button {
+  background: #2563eb;
+}
+
+.portal-user-actions button:hover,
+.portal-register-link:hover,
+.auth-card button[type="submit"]:hover,
+.upload-correction-button:hover:not(:disabled),
+.start-edit-button:hover,
+.start-application-button:hover {
+  background: #1d4ed8 !important;
+}
+
+.auth-page {
+  background: linear-gradient(135deg, #153b78, #3978d8);
+}
+
+.auth-background-overlay {
+  background: linear-gradient(115deg, rgba(12, 35, 79, 0.84), rgba(37, 99, 235, 0.48));
+}
+
+.auth-card h2,
+.auth-card-register h3 { color: #1e3a8a; }
+
+.auth-card input:not([type="radio"]):focus,
+.admin-field select:focus,
+.admin-field textarea:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.13);
+}
+
+.dashboard-eyebrow,
+.page-eyebrow { color: #3975d8; }
+
+.dashboard-content > h1,
+.services-page-heading h1 { color: #193b75; }
+
+.dashboard-content > p,
+.services-page-heading p { color: #64748b; }
+
+/* Dashboard cards: fully tinted surfaces, not just a colored edge */
+.dashboard-card {
+  border: 1px solid transparent;
+  box-shadow: 0 12px 30px rgba(30, 64, 175, 0.08);
+  transition: transform 260ms cubic-bezier(.2,.8,.2,1),
+              box-shadow 260ms ease, filter 260ms ease;
+  animation: portal-card-enter 650ms both;
+}
+.dashboard-card:nth-child(1) { background: #e8f1ff; border-color: #c9ddff; }
+.dashboard-card:nth-child(2) { background: #fff3d6; border-color: #ffe2a0; }
+.dashboard-card:nth-child(1) .dashboard-card-icon { color: #245bc0; background: #d3e4ff; }
+.dashboard-card:nth-child(2) .dashboard-card-icon { color: #a96516; background: #ffe5ad; }
+.dashboard-card:nth-child(1) h2 { color: #1e478f; }
+.dashboard-card:nth-child(2) h2 { color: #8b5417; }
+.dashboard-card:nth-child(1) .dashboard-card-action { color: #245bc0; }
+.dashboard-card:nth-child(2) .dashboard-card-action { color: #a96516; }
+.dashboard-card:nth-child(2) { animation-delay: 90ms; }
+.dashboard-card:hover {
+  transform: translateY(-8px) scale(1.012);
+  filter: saturate(1.04);
+  box-shadow: 0 22px 42px rgba(30, 64, 175, 0.15);
+}
+
+/* Service cards: each card gets a complete soft pastel background */
+.service-card-modern {
+  border: 1px solid var(--card-border, #dbeafe);
+  border-top: 0;
+  border-radius: 19px;
+  background: var(--card-bg, #edf4ff);
+  box-shadow: 0 11px 28px rgba(30, 64, 175, 0.07);
+  transition: transform 280ms cubic-bezier(.2,.8,.2,1),
+              box-shadow 280ms ease, filter 280ms ease;
+  animation: portal-card-enter 650ms both;
+}
+.service-card-modern:nth-child(6n + 1) { --card-bg:#e8f1ff; --card-border:#c9ddff; --card-accent:#2862c7; }
+.service-card-modern:nth-child(6n + 2) { --card-bg:#fff1d2; --card-border:#ffdfa0; --card-accent:#a96516; }
+.service-card-modern:nth-child(6n + 3) { --card-bg:#e5f6ed; --card-border:#bce8cf; --card-accent:#238354; }
+.service-card-modern:nth-child(6n + 4) { --card-bg:#f4eaff; --card-border:#dfc8ff; --card-accent:#7845b5; }
+.service-card-modern:nth-child(6n + 5) { --card-bg:#ffe9e5; --card-border:#ffc9bd; --card-accent:#c35c49; }
+.service-card-modern:nth-child(6n + 6) { --card-bg:#e2f5f6; --card-border:#b9e4e7; --card-accent:#287f86; }
+
+.service-card-modern:hover {
+  transform: translateY(-8px);
+  filter: saturate(1.06);
+  box-shadow: 0 22px 42px rgba(30, 64, 175, 0.13);
+}
+.service-card-icon {
+  color: var(--card-accent) !important;
+  background: rgba(255,255,255,.72);
+}
+.service-card-status {
+  color: var(--card-accent);
+  background: rgba(255,255,255,.72);
+}
+.service-card-modern h2 { color: #203b64; }
+.service-card-modern p { color: #536783; }
+.service-card-modern button {
+  color: var(--card-accent);
+  background: rgba(255,255,255,.76);
+  transition: background 220ms ease, color 220ms ease, transform 220ms ease;
+}
+.service-card-modern button:hover {
+  color: #fff;
+  background: var(--card-accent);
+  transform: translateY(-2px);
+}
+
+/* Service requirements and application cards use a visible, soft full tint */
+.requirement-card {
+  border: 1px solid color-mix(in srgb, var(--service-color, #2563eb) 22%, white);
+  border-inline-start: 4px solid var(--service-color, #2563eb);
+  background: color-mix(in srgb, var(--service-color, #2563eb) 13%, white);
+  box-shadow: 0 8px 22px rgba(30, 64, 175, 0.05);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.requirement-card:hover { transform: translateY(-3px); box-shadow: 0 13px 28px rgba(30,64,175,.09); }
+
+.application-page .application-card,
+.application-page .user-correction-card,
+.application-page .admin-panel {
+  border: 1px solid color-mix(in srgb, var(--service-color, #2563eb) 18%, white);
+  border-top: 0;
+  background: color-mix(in srgb, var(--service-color, #2563eb) 9%, white);
+  box-shadow: 0 10px 28px rgba(30, 64, 175, 0.07);
+}
+.application-page .application-summary {
+  border: 1px solid color-mix(in srgb, var(--service-color, #2563eb) 20%, white);
+  border-top: 0;
+  background: color-mix(in srgb, var(--service-color, #2563eb) 10%, white);
+}
+.application-page .document-card,
+.upload-item {
+  border: 1px solid color-mix(in srgb, var(--service-color, #2563eb) 18%, white);
+  border-inline-start: 3px solid var(--service-color, #2563eb);
+  background: color-mix(in srgb, var(--service-color, #2563eb) 10%, white);
+}
+.user-correction-card {
+  border-right-color: #f0a33a;
+  background: #fff4df;
+}
+.warning-icon { background: #ffe8b8; color: #986018; }
+
+.services-back-button,
+.application-back-button {
+  border-color: #d7e5fb;
+  background: #fff;
+  color: #28569f;
+  transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease;
+}
+.services-back-button:hover,
+.application-back-button:hover {
+  transform: translateY(-2px);
+  background: #eaf2ff;
+  box-shadow: 0 8px 18px rgba(37,99,235,.10);
+}
+
+button, a, .requirement-guidance-link, .document-card {
+  transition-timing-function: cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes portal-card-enter {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .portal-app-header { animation: portal-header-enter 500ms ease both; }
+  .dashboard-card-icon, .service-card-icon { transition: transform 260ms ease; }
+  .dashboard-card:hover .dashboard-card-icon,
+  .service-card-modern:hover .service-card-icon { transform: rotate(-5deg) scale(1.08); }
+}
+@keyframes portal-header-enter {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 780px) {
+  .dashboard-card { min-height: 190px; }
+}
