@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
+import { getServiceThemeStyle } from "../utils/serviceTheme";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const Services = () => {
           <article
             className="service-card service-card-modern"
             key={service._id}
-            style={{ "--service-color": service.themeColor || "#527C78" }}
+            style={getServiceThemeStyle(service)}
           >
             <div className="service-card-topline">
               <span className="service-card-icon">{String(index + 1).padStart(2, "0")}</span>
