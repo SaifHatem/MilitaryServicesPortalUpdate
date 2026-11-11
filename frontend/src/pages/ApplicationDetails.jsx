@@ -143,12 +143,12 @@ function ApplicationDetails() {
 
   const handleAddCorrection = async () => {
     if (!selectedRequirement) {
-      alert("برجاء اختيار المستند المطلوب تعديله");
+      alert("برجاء اختيار المستند المطلوب مراجعته");
       return;
     }
 
     if (!correctionMessage.trim()) {
-      alert("برجاء كتابة سبب طلب التعديل");
+      alert("برجاء توضيح الإجراء المتخذ");
       return;
     }
 
@@ -165,11 +165,11 @@ function ApplicationDetails() {
 
       await fetchApplication();
 
-      alert("تم إرسال طلب التعديل بنجاح");
+      alert("تم تسجيل مراجعة المستند بنجاح");
     } catch (err) {
       console.error("Add correction error:", err);
 
-      alert(err.response?.data?.message || "حدث خطأ أثناء إرسال طلب التعديل");
+      alert(err.response?.data?.message || "حدث خطأ أثناء مراجعة المستند");
     } finally {
       setAddingCorrection(false);
     }
@@ -826,7 +826,7 @@ function ApplicationDetails() {
         {/* PREVIOUS CORRECTIONS */}
         {application.corrections?.length > 0 && (
           <div className="previous-corrections">
-            <h3>طلبات التعديل السابقة</h3>
+            <h3>مراجعات المستندات السابقة</h3>
 
             <div>
               {application.corrections.map((correction) => (
@@ -856,11 +856,11 @@ function ApplicationDetails() {
 
         {/* ADD CORRECTION */}
         <div className="admin-correction-section">
-          <h3>طلب تعديل مستند</h3>
+          <h3>مراجعة المستند</h3>
 
           <div className="admin-form">
             <div className="admin-field">
-              <label>المستند المطلوب تعديله</label>
+              <label>المستند المطلوب مراجعته</label>
 
               <select
                 value={selectedRequirement}
@@ -884,12 +884,12 @@ function ApplicationDetails() {
             </div>
 
             <div className="admin-field">
-              <label>سبب طلب التعديل</label>
+              <label>الإجراء المتخذ</label>
 
               <textarea
                 value={correctionMessage}
                 onChange={(event) => setCorrectionMessage(event.target.value)}
-                placeholder="اكتب المطلوب تعديله في المستند..."
+                placeholder="اكتب الإجراء المطلوب اتخاذه بخصوص المستند..."
                 rows="4"
               />
             </div>
@@ -899,7 +899,7 @@ function ApplicationDetails() {
               onClick={handleAddCorrection}
               disabled={addingCorrection}
             >
-              {addingCorrection ? "جاري إرسال الطلب..." : "طلب تعديل المستند"}
+              {addingCorrection ? "جارٍ حفظ المراجعة..." : "مراجعة المستند"}
             </button>
           </div>
         </div>
