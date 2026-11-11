@@ -16,18 +16,19 @@ const AppHeader = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const showAuthenticatedHeader = Boolean(user) && location.pathname !== "/login";
-  const loadNotifications = async () => {
-    try {
-      const response = await api.get("/notifications");
-      setNotifications(response.data.notifications || []);
-      setUnreadCount(response.data.unreadCount || 0);
-    } catch (error) {
-      console.error("Load notifications error:", error);
-    }
-  };
-
   useEffect(() => {
     if (!showAuthenticatedHeader) return undefined;
+
+    const loadNotifications = async () => {
+      try {
+        const response = await api.get("/notifications");
+        setNotifications(response.data.notifications || []);
+        setUnreadCount(response.data.unreadCount || 0);
+      } catch (error) {
+        console.error("Load notifications error:", error);
+      }
+    };
+
     loadNotifications();
     const intervalId = window.setInterval(loadNotifications, 10000);
     return () => window.clearInterval(intervalId);
