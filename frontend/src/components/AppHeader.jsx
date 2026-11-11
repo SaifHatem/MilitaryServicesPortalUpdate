@@ -43,7 +43,10 @@ const AppHeader = () => {
         <nav className="portal-auth-nav" aria-label="حساب المستخدم">
           <NavLink to="/login">تسجيل الدخول</NavLink>
           <NavLink to="/register" className="portal-register-link">
-            إنشاء حساب
+            إنشاء حساب جديد
+          </NavLink>
+          <NavLink to="/forgot-password" className="portal-forgot-link">
+            نسيت كلمة المرور؟
           </NavLink>
         </nav>
       )}
