@@ -482,3 +482,74 @@ button, a, .requirement-guidance-link, .document-card {
     gap: 3px;
   }
 }
+
+
+/* Keep the public landing screen to one compact app bar and the video */
+@media (min-width: 781px) {
+  .portal-app-header:has(.portal-auth-area) {
+    flex-wrap: nowrap;
+    min-height: 78px;
+    gap: 14px;
+  }
+  .portal-app-header:has(.portal-auth-area) .portal-brand-link {
+    flex: 0 1 320px;
+    min-width: 230px;
+  }
+  .portal-app-header:has(.portal-auth-area) .portal-auth-area {
+    flex: 1 1 auto;
+    min-width: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-inline-start: 0;
+  }
+  .portal-app-header:has(.portal-auth-area) .portal-inline-login {
+    flex-wrap: nowrap;
+    flex: 0 1 auto;
+  }
+  .portal-app-header:has(.portal-auth-area) .portal-inline-login input {
+    width: clamp(125px, 11vw, 165px);
+  }
+  .portal-app-header:has(.portal-auth-area) .portal-auth-links {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 10px;
+  }
+  .portal-app-header:has(.portal-auth-area) .portal-login-error {
+    position: absolute;
+    inset-inline-end: 42px;
+    top: calc(100% + 4px);
+    z-index: 30;
+    padding: 5px 10px;
+    border-radius: 7px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  }
+}
+.public-video-page {
+  min-height: calc(100vh - 78px);
+  height: calc(100vh - 78px);
+  padding: 0;
+  display: block;
+}
+.public-video-page .auth-background-video,
+.public-video-page .auth-background-overlay {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 780px) {
+  .portal-app-header:has(.portal-auth-area) {
+    flex-wrap: wrap;
+  }
+  .portal-app-header:has(.portal-auth-area) .portal-auth-area {
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+  }
+  .public-video-page {
+    height: auto;
+    min-height: calc(100vh - 150px);
+  }
+}
