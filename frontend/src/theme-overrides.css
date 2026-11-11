@@ -668,3 +668,65 @@ button, a, .requirement-guidance-link, .document-card {
   background: #f2d5d7;
   border-color: #e5b4b8;
 }
+
+
+/* More noticeable lift / pop effect for electronic service cards */
+.services-grid-modern {
+  overflow: visible;
+  padding: 14px 8px 28px;
+}
+.service-card-modern {
+  transform-origin: center center;
+  transition: transform 360ms cubic-bezier(.2,.8,.2,1),
+              box-shadow 360ms ease, filter 300ms ease;
+}
+.service-card-modern:hover {
+  transform: translateY(-14px) scale(1.075);
+  filter: saturate(1.12);
+  box-shadow: 0 30px 62px rgba(30, 64, 120, .27);
+  z-index: 10;
+}
+
+/* Keep reviewer actions visible side by side on each application */
+.admin-application-actions {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.admin-application-actions .admin-view-button,
+.admin-application-actions .admin-hide-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 40px;
+  margin: 0;
+}
+.admin-application-actions .admin-hide-button {
+  padding: 10px 16px;
+  border: 1px solid #efb7b7;
+  border-radius: 9px;
+  background: #fff0f0;
+  color: #b42318;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+.admin-application-actions .admin-hide-button:hover {
+  background: #ffe0e0;
+  border-color: #e58b8b;
+}
+@media (max-width: 600px) {
+  .admin-application-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .admin-application-actions .admin-view-button,
+  .admin-application-actions .admin-hide-button {
+    width: 100%;
+  }
+}
