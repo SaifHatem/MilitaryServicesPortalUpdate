@@ -10,10 +10,6 @@ const Welcome = () => (
       aria-hidden="true"
     />
     <div className="auth-background-overlay" />
-    <div className="public-video-content" aria-hidden="true">
-      <h1>بوابة الخدمات العسكرية</h1>
-      <p>خدماتك الحكومية الرقمية في مكان واحد</p>
-    </div>
     <div className="public-video-footer">
       منظومة الخدمات المقدمة للسادة ضباط هيئة الإستخبارات العسكرية
       <span>فرع شئون ضباط الهيئة</span>
