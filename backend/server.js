@@ -11,6 +11,7 @@ const applicationRoutes = require("./routes/applicationRoutes");
 const uploadRoutes = require("./routes/uploadRoutes");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
+const notificationRoutes = require("./routes/notificationRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 1234;
@@ -26,6 +27,7 @@ app.use("/api/applications", applicationRoutes);
 app.use("/api/uploads", uploadRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/notifications", notificationRoutes);
 
 // Serve frontend files from the same server
 app.use(express.static(frontendDist));
