@@ -4,7 +4,6 @@
 // import api from "../services/api";
 import { getServiceThemeStyle } from "../utils/serviceTheme";
 import { getServiceThemeStyle } from "../utils/serviceTheme";
-import { getServiceThemeStyle } from "../utils/serviceTheme";
 
 // const ServiceDetails = () => {
 //   const { serviceId } = useParams();
