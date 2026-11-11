@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
+import { getServiceThemeStyle } from "../utils/serviceTheme";
 
 function AdminDashboard() {
   const navigate = useNavigate();
@@ -301,7 +302,7 @@ function AdminDashboard() {
           ) : (
             <div className="admin-applications-list">
               {filteredApplications.map((application) => (
-                <div className="admin-application-card admin-application-card-themed" key={application._id} style={{ "--service-color": application.serviceId?.themeColor || "#527C78" }}>
+                <div className="admin-application-card admin-application-card-themed" key={application._id} style={getServiceThemeStyle(application.serviceId)}>
                   <div className="admin-application-main">
                     <div className="admin-application-icon">📄</div>
 
