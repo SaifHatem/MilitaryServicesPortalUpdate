@@ -1,0 +1,89 @@
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import api from "../services/api";
+
+const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const login = async (nationalId, password) => {
+    const response = await api.post("/auth/login", {
+      nationalId,
+      password,
+    });
+
+    const { token, user } = response.data;
+
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(user));
+
+    setUser(user);
+
+    return response.data;
+  };
+
+  const updateUser = async (userData) => {
+    const response = await api.patch("/auth/me", userData);
+
+    const updatedUser = response.data.user;
+
+    setUser(updatedUser);
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+
+    return response.data;
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    setUser(null);
+  };
+
+  const loadUser = useCallback(async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await api.get("/auth/me");
+
+      setUser(response.data);
+      localStorage.setItem("user", JSON.stringify(response.data));
+    } catch {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+
+      setUser(null);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    Promise.resolve().then(loadUser);
+  }, [loadUser]);
+
+  return (
+    <AuthContext.Provider
+      value={{
+        user,
+        loading,
+        login,
+        logout,
+        updateUser,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useAuth = () => {
+  return useContext(AuthContext);
+};

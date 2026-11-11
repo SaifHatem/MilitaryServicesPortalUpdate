@@ -1,0 +1,14 @@
+{
+  "name": "military-services-portal",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Military Services Portal",
+  "scripts": {
+    "start": "npm --prefix backend start",
+    "build": "npm --prefix frontend run build",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "seed": "npm --prefix backend run seed",
+    "reset:users": "npm --prefix backend run reset:users"
+  }
+}
