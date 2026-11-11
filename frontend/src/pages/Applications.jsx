@@ -1,6 +1,7 @@
 // import { useCallback, useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 // import api from "../services/api";
+import { getServiceThemeStyle } from "../utils/serviceTheme";
 
 // function Applications() {
 //   const navigate = useNavigate();
@@ -166,7 +167,7 @@
 //         {applications.length > 0 && (
 //           <div className="applications-list">
 //             {applications.map((application) => (
-//               <div className="application-card" key={application._id}>
+//               <div className="application-card application-card-themed" key={application._id} style={getServiceThemeStyle(application.serviceId)}>
 //                 <div className="application-card-main">
 //                   <div className="application-card-icon">📄</div>
 
