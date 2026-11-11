@@ -18,8 +18,8 @@
 .dashboard-card:hover,
 .application-card-themed:hover,
 .admin-application-card-themed:hover {
-  transform: translateY(-9px) scale(1.025);
-  box-shadow: 0 24px 48px rgba(31, 67, 125, .17);
+  transform: translateY(-18px) scale(1.055);
+  box-shadow: 0 32px 58px rgba(20, 48, 95, .23);
   z-index: 2;
 }
 
@@ -45,8 +45,8 @@
 
 .requirement-card:hover,
 .upload-item:hover {
-  transform: translateY(-4px) scale(1.008);
-  box-shadow: 0 13px 27px rgba(31, 67, 125, .11);
+  transform: translateY(-7px) scale(1.018);
+  box-shadow: 0 18px 34px rgba(31, 67, 125, .16);
 }
 
 .requirement-number,
