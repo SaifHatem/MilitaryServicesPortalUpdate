@@ -2,6 +2,7 @@
 // import { useNavigate, useParams } from "react-router-dom";
 
 // import api from "../services/api";
+import { getServiceThemeStyle } from "../utils/serviceTheme";
 
 // const ServiceDetails = () => {
 //   const { serviceId } = useParams();
@@ -93,7 +94,7 @@
 
 //         <div className="requirements-list">
 //           {requirements.map((requirement, index) => (
-//             <div className="requirement-card" key={requirement._id} style={{ "--service-color": service?.themeColor || "#527C78" }}>
+//             <div className="requirement-card" key={requirement._id} style={getServiceThemeStyle(service)}>
 //               <div className="requirement-number">{index + 1}</div>
 
 //               <div className="requirement-content">
@@ -223,7 +224,7 @@ const ServiceDetails = () => {
 
         <div className="requirements-list">
           {requirements.map((requirement, index) => (
-            <div className="requirement-card" key={requirement._id}>
+            <div className="requirement-card" key={requirement._id} style={getServiceThemeStyle(service)}>
               <div className="requirement-number">{index + 1}</div>
 
               <div className="requirement-content">
