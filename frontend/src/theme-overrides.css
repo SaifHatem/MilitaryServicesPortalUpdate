@@ -553,3 +553,9 @@ button, a, .requirement-guidance-link, .document-card {
     min-height: calc(100vh - 150px);
   }
 }
+
+/* Fix the public page gap: keep the app bar fixed above the video */
+.portal-app-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+}
