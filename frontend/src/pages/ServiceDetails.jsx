@@ -4,6 +4,7 @@
 // import api from "../services/api";
 import { getServiceThemeStyle } from "../utils/serviceTheme";
 import { getServiceThemeStyle } from "../utils/serviceTheme";
+import { getServiceThemeStyle } from "../utils/serviceTheme";
 
 // const ServiceDetails = () => {
 //   const { serviceId } = useParams();
@@ -201,7 +202,7 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div className="service-details-page" style={{ "--service-color": service?.themeColor || "#527C78" }}>
+    <div className="service-details-page" style={getServiceThemeStyle(service)}>
       <div className="service-details-header">
         <button className="back-button" onClick={() => navigate("/services")}>
           ← العودة للخدمات
