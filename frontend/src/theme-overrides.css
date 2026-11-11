@@ -670,24 +670,26 @@ button, a, .requirement-guidance-link, .document-card {
 }
 
 
-/* Strong lift / pop effect for available service cards */
-.services-grid-modern {
+/* Make available service cards lift clearly on mouse hover.
+   Higher specificity prevents the older index.css hover rule from overriding it. */
+html body .services-page-modern .services-grid-modern {
   overflow: visible;
   padding: 20px 10px 34px;
   row-gap: 26px;
 }
-.service-card-modern {
+html body .services-page-modern .service-card-modern {
   position: relative;
+  transform: translate3d(0, 0, 0);
   transform-origin: center center;
   transition: transform 420ms cubic-bezier(.16,1,.3,1),
               box-shadow 420ms ease, filter 320ms ease;
   will-change: transform;
 }
-.service-card-modern:hover {
-  transform: translateY(-22px) scale(1.085);
+html body .services-page-modern .service-card-modern:hover {
+  transform: translate3d(0, -26px, 0) scale(1.07) !important;
   filter: saturate(1.14);
   box-shadow: 0 34px 68px rgba(30, 64, 120, .30);
-  z-index: 10;
+  z-index: 20;
 }
 
 /* Keep reviewer actions visible side by side on each application */
