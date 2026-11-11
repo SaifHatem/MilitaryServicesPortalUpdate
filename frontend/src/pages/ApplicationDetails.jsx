@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
+import { getServiceThemeStyle } from "../utils/serviceTheme";
 
 const statusLabels = {
   draft: "مسودة",
@@ -911,7 +912,7 @@ function ApplicationDetails() {
   // ============================================================
 
   return (
-    <div className="application-page" style={{ "--service-color": application.serviceId?.themeColor || "#527C78" }}>
+    <div className="application-page" style={getServiceThemeStyle(application.serviceId)}>
       <div className="application-wrapper">
         {/* HEADER */}
         <div className="application-header">
