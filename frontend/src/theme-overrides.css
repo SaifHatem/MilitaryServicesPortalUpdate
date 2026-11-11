@@ -339,3 +339,113 @@ button, a, .requirement-guidance-link, .document-card {
   line-height: 1.8;
   color: rgba(255,255,255,.92);
 }
+
+
+/* Inline login controls in the public app bar */
+.portal-auth-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  margin-inline-start: auto;
+  min-width: 0;
+}
+.portal-inline-login {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.portal-inline-login input {
+  width: 165px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #cbdaf0;
+  border-radius: 9px;
+  background: #fff;
+  color: #203b64;
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+.portal-inline-login input:focus {
+  border-color: #3978d8;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+}
+.portal-inline-login button {
+  min-height: 40px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 9px;
+  background: #2563eb;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+.portal-inline-login button:hover:not(:disabled) {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+.portal-inline-login button:disabled { opacity: .65; cursor: wait; }
+.portal-auth-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+}
+.portal-auth-links a {
+  color: #45638d;
+  text-decoration: none;
+  font-weight: 600;
+}
+.portal-auth-links .portal-register-link { color: #2563eb; }
+.portal-auth-links a:hover { text-decoration: underline; }
+.portal-login-error {
+  margin: 0;
+  color: #b42318;
+  font-size: 12px;
+}
+.portal-app-header:has(.portal-auth-area) {
+  align-items: center;
+}
+.portal-auth-area { direction: rtl; }
+.portal-inline-login { direction: rtl; }
+
+/* Registration card sits on the right, leaving the background video visible */
+.auth-layout-register {
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px clamp(18px, 4vw, 64px);
+}
+.auth-layout-register .auth-card-register {
+  width: min(460px, 100%);
+  max-height: calc(100vh - 125px);
+  overflow-y: auto;
+  margin-inline-end: auto;
+  margin-block: 4px;
+  padding: 25px 28px;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 18px 55px rgba(5,24,58,.28);
+  backdrop-filter: blur(8px);
+}
+@media (max-width: 760px) {
+  .portal-auth-area { width: 100%; align-items: center; margin-inline-start: 0; }
+  .portal-inline-login { width: 100%; justify-content: center; }
+  .portal-inline-login input { flex: 1 1 135px; width: auto; }
+  .portal-inline-login button { flex: 1 1 100%; }
+  .portal-auth-links { justify-content: center; }
+  .auth-layout-register {
+    justify-content: center;
+    align-items: flex-start;
+    padding: 14px;
+  }
+  .auth-layout-register .auth-card-register {
+    margin: 0;
+    max-height: calc(100vh - 115px);
+    padding: 22px 18px;
+  }
+}
