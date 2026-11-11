@@ -87,7 +87,7 @@ const ServiceDetails = () => {
 
       <div className="requirements-container">
         <div className="requirements-heading">
-          <h2>المتطلبات والمستندات</h2>
+          <h2>الأوراق والمستندات المطلوبة</h2>
 
           <p>يرجى مراجعة جميع المتطلبات قبل البدء في تقديم الطلب</p>
         </div>
