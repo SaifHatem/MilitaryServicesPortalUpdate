@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import AuthorityBrand from "./AuthorityBrand";
@@ -10,6 +10,8 @@ const AppHeader = () => {
   const [loginError, setLoginError] = useState("");
   const [loginLoading, setLoginLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const showAuthenticatedHeader = Boolean(user) && location.pathname !== "/login";
   const handleLogin = async (event) => {
     event.preventDefault();
     setLoginError("");
@@ -37,7 +39,7 @@ const AppHeader = () => {
         <AuthorityBrand compact />
       </Link>
 
-      {user ? (
+      {showAuthenticatedHeader ? (
         <>
           <nav className="portal-nav" aria-label="التنقل الرئيسي">
             <NavLink to="/dashboard">الرئيسية</NavLink>
