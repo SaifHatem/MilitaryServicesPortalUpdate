@@ -336,12 +336,6 @@ router.delete("/:id", authenticate, async (req, res) => {
       });
     }
 
-    if (application.status !== "draft") {
-      return res.status(400).json({
-        message: "لا يمكن حذف الطلب بعد إرساله",
-      });
-    }
-
     const applicationFiles = await ApplicationFile.find({
       applicationId: application._id,
     });
