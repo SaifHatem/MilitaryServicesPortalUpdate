@@ -1803,3 +1803,22 @@ html[data-theme="dark"] .admin-application-card-themed .admin-application-info h
   font-weight: 800 !important;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 0 16px rgba(255, 194, 64, 0.38) !important;
 }
+
+
+/* Keep the header password eye as a standalone icon with no button box */
+.portal-inline-password > .portal-inline-password-toggle,
+.portal-inline-password > .portal-inline-password-toggle:hover,
+.portal-inline-password > .portal-inline-password-toggle:focus,
+.portal-inline-password > .portal-inline-password-toggle:focus-visible,
+.portal-inline-password > .portal-inline-password-toggle:active {
+  background: transparent !important;
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.portal-inline-password > .portal-inline-password-toggle:hover {
+  color: #1f2937 !important;
+}
+.portal-inline-password > .portal-inline-password-toggle:focus-visible {
+  outline: none !important;
+}
