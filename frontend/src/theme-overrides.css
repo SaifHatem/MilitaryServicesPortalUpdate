@@ -561,16 +561,7 @@ button, a, .requirement-guidance-link, .document-card {
 }
 
 
-/* Logout button: clear red */
-.portal-user-actions button {
-  background: #dc2626 !important;
-  color: #ffffff !important;
-  border: 1px solid #b91c1c;
-}
-.portal-user-actions button:hover {
-  background: #b91c1c !important;
-  color: #ffffff !important;
-}
+/* Logout button: clear red without affecting notification controls */
 
 /* Forgot password card aligned to the right, like the registration panel */
 .auth-layout-forgotpassword {
@@ -1310,4 +1301,23 @@ html body .services-page-modern .service-card-modern:hover {
 
 .portal-app-header .portal-notification-bell:hover {
   background: rgba(255, 255, 255, 0.22) !important;
+}
+
+
+/* Distinct logout action and refined public login heading */
+.portal-app-header .portal-user-actions > .portal-logout-button {
+  background: #dc2626 !important;
+  border: 1px solid #b91c1c !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(220, 38, 38, 0.18);
+  transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+.portal-app-header .portal-user-actions > .portal-logout-button:hover {
+  background: #b91c1c !important;
+  border-color: #991b1b !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+.portal-app-header:has(.portal-auth-area) .authority-brand-text h1 {
+  color: #e8d7a5 !important;
 }
