@@ -1579,3 +1579,22 @@ html[data-theme="dark"] .status-correction { background: #5a3a1b; color: #fed7aa
 @media (prefers-reduced-motion: reduce) {
   body, .portal-theme-toggle { transition: none; }
 }
+
+
+/* Admin dashboard readability fixes in dark mode */
+html[data-theme="dark"] .admin-stat-card,
+html[data-theme="dark"] .admin-stat-card strong,
+html[data-theme="dark"] .admin-stat-card .admin-stat-value,
+html[data-theme="dark"] .admin-stat-card .admin-stat-number {
+  color: #f8fafc !important;
+}
+html[data-theme="dark"] .admin-stat-card .admin-stat-label,
+html[data-theme="dark"] .admin-stat-card p,
+html[data-theme="dark"] .admin-stat-card span {
+  color: #d5deeb !important;
+}
+/* Service names sit on the service-tinted application card, so use a dark readable ink. */
+html[data-theme="dark"] .admin-application-card-themed .admin-application-info h3,
+html[data-theme="dark"] .admin-application-card-themed .admin-application-info h3 a {
+  color: #263449 !important;
+}
