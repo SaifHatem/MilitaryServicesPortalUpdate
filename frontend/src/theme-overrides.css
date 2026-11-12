@@ -1347,3 +1347,235 @@ html body .portal-app-header .portal-user-actions > button.portal-logout-button:
   border-color: #b91c1c !important;
   color: #ffffff !important;
 }
+
+
+/* =========================================================
+   THEME MODES - added on main
+   ========================================================= */
+:root {
+  --portal-page-bg: #f1f5fb;
+  --portal-surface: #ffffff;
+  --portal-surface-raised: #ffffff;
+  --portal-text: #243247;
+  --portal-text-muted: #64748b;
+  --portal-line: #dbe5f2;
+  --portal-control-bg: #ffffff;
+  --portal-control-text: #243247;
+  --portal-card-shadow: 0 10px 28px rgba(31, 41, 55, .07);
+}
+body {
+  background: var(--portal-page-bg) !important;
+  color: var(--portal-text);
+  transition: background-color 220ms ease, color 220ms ease;
+}
+.portal-theme-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 7px 11px !important;
+  border: 1px solid rgba(255,255,255,.25) !important;
+  border-radius: 9px;
+  background: rgba(255,255,255,.13) !important;
+  color: #fff !important;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+.portal-theme-toggle:hover {
+  background: rgba(255,255,255,.24) !important;
+  transform: translateY(-1px);
+}
+.portal-theme-toggle-public { align-self: center; }
+.portal-theme-toggle span[aria-hidden="true"] { font-size: 15px; line-height: 1; }
+@media (max-width: 780px) {
+  .portal-theme-toggle { min-height: 32px; padding: 6px 8px !important; }
+  .portal-theme-toggle-label { display: none; }
+}
+
+/* Dark mode base and shared surfaces */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --portal-page-bg: #111827;
+  --portal-surface: #1f2937;
+  --portal-surface-raised: #273449;
+  --portal-text: #e8edf5;
+  --portal-text-muted: #aab6c7;
+  --portal-line: #3b4a60;
+  --portal-control-bg: #182334;
+  --portal-control-text: #e8edf5;
+  --portal-card-shadow: 0 12px 30px rgba(0,0,0,.22);
+}
+html[data-theme="dark"] body {
+  background: var(--portal-page-bg) !important;
+  color: var(--portal-text) !important;
+}
+html[data-theme="dark"] .portal-main,
+html[data-theme="dark"] .dashboard,
+html[data-theme="dark"] .services-page,
+html[data-theme="dark"] .service-details-page,
+html[data-theme="dark"] .application-page,
+html[data-theme="dark"] .applications-page,
+html[data-theme="dark"] .admin-page,
+html[data-theme="dark"] .users-management-page {
+  color: var(--portal-text);
+}
+html[data-theme="dark"] .dashboard-card,
+html[data-theme="dark"] .service-details-header,
+html[data-theme="dark"] .requirements-container,
+html[data-theme="dark"] .form-section,
+html[data-theme="dark"] .application-summary,
+html[data-theme="dark"] .application-card:not(.application-card-themed),
+html[data-theme="dark"] .admin-panel,
+html[data-theme="dark"] .users-management-card,
+html[data-theme="dark"] .users-table-wrapper,
+html[data-theme="dark"] .services-empty-state,
+html[data-theme="dark"] .applications-empty,
+html[data-theme="dark"] .admin-empty,
+html[data-theme="dark"] .admin-filter-bar,
+html[data-theme="dark"] .admin-stat-card,
+html[data-theme="dark"] .auth-card,
+html[data-theme="dark"] .auth-card-register,
+html[data-theme="dark"] .auth-card-forgotpassword,
+html[data-theme="dark"] .account-settings-card,
+html[data-theme="dark"] .account-settings-section,
+html[data-theme="dark"] .admin-applications-section,
+html[data-theme="dark"] .users-table,
+html[data-theme="dark"] .users-table th,
+html[data-theme="dark"] .users-table td {
+  background: var(--portal-surface) !important;
+  border-color: var(--portal-line) !important;
+  color: var(--portal-text);
+  box-shadow: var(--portal-card-shadow);
+}
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] .dashboard-card h2,
+html[data-theme="dark"] .admin-section-header,
+html[data-theme="dark"] .users-card-heading h2,
+html[data-theme="dark"] .account-settings-card h2,
+html[data-theme="dark"] .account-settings-section h2 {
+  color: #f3f6fb !important;
+}
+html[data-theme="dark"] p,
+html[data-theme="dark"] .dashboard-card p,
+html[data-theme="dark"] .admin-section-header p,
+html[data-theme="dark"] .users-card-heading p {
+  color: var(--portal-text-muted);
+}
+html[data-theme="dark"] label,
+html[data-theme="dark"] .form-group label,
+html[data-theme="dark"] .users-form-field label {
+  color: #dce5f1;
+}
+html[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]),
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] .users-password-wrapper {
+  color: var(--portal-control-text) !important;
+  background: var(--portal-control-bg) !important;
+  border-color: var(--portal-line) !important;
+}
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder { color: #8fa0b6 !important; }
+html[data-theme="dark"] option {
+  color: var(--portal-text);
+  background: var(--portal-surface);
+}
+html[data-theme="dark"] .document-card,
+html[data-theme="dark"] .user-correction-item,
+html[data-theme="dark"] .correction-message-box,
+html[data-theme="dark"] .portal-notification-panel,
+html[data-theme="dark"] .portal-notification-item {
+  background: var(--portal-surface-raised) !important;
+  border-color: var(--portal-line) !important;
+  color: var(--portal-text) !important;
+}
+html[data-theme="dark"] .portal-notification-title,
+html[data-theme="dark"] .portal-notification-message,
+html[data-theme="dark"] .portal-notification-date,
+html[data-theme="dark"] .document-text strong,
+html[data-theme="dark"] .correction-document-name,
+html[data-theme="dark"] .correction-message-box strong {
+  color: var(--portal-text) !important;
+}
+html[data-theme="dark"] .portal-notification-empty,
+html[data-theme="dark"] .document-text span { color: var(--portal-text-muted) !important; }
+html[data-theme="dark"] .portal-app-header {
+  background: #111827 !important;
+  border-bottom-color: #293548 !important;
+}
+html[data-theme="dark"] .portal-theme-toggle {
+  color: #fff !important;
+  background: rgba(255,255,255,.14) !important;
+}
+html[data-theme="dark"] .portal-app-header .portal-user-actions > .portal-logout-button {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+}
+html[data-theme="dark"] .portal-app-header .portal-user-actions > .portal-logout-button:hover {
+  background: #b91c1c !important;
+}
+html[data-theme="dark"] .back-button,
+html[data-theme="dark"] .services-back-button,
+html[data-theme="dark"] .application-back-button,
+html[data-theme="dark"] .users-secondary-button,
+html[data-theme="dark"] .admin-refresh-button,
+html[data-theme="dark"] .admin-clear-filter {
+  color: #e8edf5 !important;
+  background: #35445a !important;
+  border-color: #4a5b73 !important;
+}
+
+/* Service cards deliberately stay light and colorful in both themes. */
+html[data-theme="dark"] .service-card-modern,
+html[data-theme="dark"] .requirement-card,
+html[data-theme="dark"] .upload-item,
+html[data-theme="dark"] .application-card-themed,
+html[data-theme="dark"] .admin-application-card-themed,
+html[data-theme="dark"] .application-page .application-summary,
+html[data-theme="dark"] .application-page .application-card,
+html[data-theme="dark"] .application-page .admin-panel,
+html[data-theme="dark"] .application-page .user-correction-card {
+  background: var(--service-bg, #e3eeff) !important;
+  border-color: var(--service-border, #b9d2ff) !important;
+  color: #243247 !important;
+}
+html[data-theme="dark"] .service-card-modern h2,
+html[data-theme="dark"] .service-card-modern p,
+html[data-theme="dark"] .requirement-content h3,
+html[data-theme="dark"] .requirement-description,
+html[data-theme="dark"] .requirement-note,
+html[data-theme="dark"] .upload-item-content h3,
+html[data-theme="dark"] .upload-item-content p,
+html[data-theme="dark"] .application-card-themed h2,
+html[data-theme="dark"] .application-card-themed p {
+  color: #263449 !important;
+}
+html[data-theme="dark"] .service-card-icon,
+html[data-theme="dark"] .service-card-status,
+html[data-theme="dark"] .requirement-number,
+html[data-theme="dark"] .upload-item-number {
+  background: rgba(255,255,255,.68) !important;
+  border-color: var(--service-border, #b9d2ff) !important;
+  color: var(--service-color, #285bb5) !important;
+}
+
+/* Status chips retain clear meaning in dark mode. */
+html[data-theme="dark"] .status-draft { background: #374151; color: #e5e7eb; }
+html[data-theme="dark"] .status-submitted { background: #1e3a5f; color: #bfdbfe; }
+html[data-theme="dark"] .status-under-review,
+html[data-theme="dark"] .status-review { background: #59451b; color: #fde68a; }
+html[data-theme="dark"] .status-approved { background: #174332; color: #bbf7d0; }
+html[data-theme="dark"] .status-rejected { background: #5b252b; color: #fecaca; }
+html[data-theme="dark"] .status-needs-correction,
+html[data-theme="dark"] .status-correction { background: #5a3a1b; color: #fed7aa; }
+@media (prefers-reduced-motion: reduce) {
+  body, .portal-theme-toggle { transition: none; }
+}
