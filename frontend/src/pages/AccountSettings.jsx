@@ -14,6 +14,10 @@ const AccountSettings = () => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showRecoveryCurrentPassword, setShowRecoveryCurrentPassword] = useState(false);
   const [changingPassword, setChangingPassword] = useState(false);
   const [passwordMessage, setPasswordMessage] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -237,42 +241,51 @@ const AccountSettings = () => {
           >
             <div className="form-group">
               <label htmlFor="current-password">كلمة المرور الحالية</label>
-              <input
+              <div className="password-input-wrapper">
+<input
                 id="current-password"
-                type="password"
+                type={showCurrentPassword ? "text" : "password"}
                 autoComplete="current-password"
                 value={currentPassword}
                 onChange={(event) => setCurrentPassword(event.target.value)}
                 required
               />
+<button type="button" className="password-visibility-toggle" onClick={() => setShowCurrentPassword((visible) => !visible)} aria-label={showCurrentPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"} title={showCurrentPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}>{showCurrentPassword ? (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8M9.9 5.2A10.8 10.8 0 0112 5c5 0 8.5 4.5 9.5 7-.4 1-1.2 2.2-2.4 3.3M6.2 6.2C3.9 7.6 2.7 9.6 2.5 12c.5 1.2 1.4 2.5 2.8 3.6A10.7 10.7 0 0012 17c.8 0 1.6-.1 2.3-.3" /></svg>) : (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12S6 5 12 5s9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z" /><circle cx="12" cy="12" r="2.5" /></svg>)}</button>
+              </div>
             </div>
 
             <div className="form-group">
               <label htmlFor="new-password">كلمة المرور الجديدة</label>
-              <input
+              <div className="password-input-wrapper">
+<input
                 id="new-password"
-                type="password"
+                type={showNewPassword ? "text" : "password"}
                 autoComplete="new-password"
                 minLength={8}
                 value={newPassword}
                 onChange={(event) => setNewPassword(event.target.value)}
                 required
               />
+<button type="button" className="password-visibility-toggle" onClick={() => setShowNewPassword((visible) => !visible)} aria-label={showNewPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"} title={showNewPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}>{showNewPassword ? (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8M9.9 5.2A10.8 10.8 0 0112 5c5 0 8.5 4.5 9.5 7-.4 1-1.2 2.2-2.4 3.3M6.2 6.2C3.9 7.6 2.7 9.6 2.5 12c.5 1.2 1.4 2.5 2.8 3.6A10.7 10.7 0 0012 17c.8 0 1.6-.1 2.3-.3" /></svg>) : (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12S6 5 12 5s9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z" /><circle cx="12" cy="12" r="2.5" /></svg>)}</button>
+              </div>
             </div>
 
             <div className="form-group">
               <label htmlFor="confirm-password">
                 تأكيد كلمة المرور الجديدة
               </label>
-              <input
+              <div className="password-input-wrapper">
+<input
                 id="confirm-password"
-                type="password"
+                type={showConfirmPassword ? "text" : "password"}
                 autoComplete="new-password"
                 minLength={8}
                 value={confirmPassword}
                 onChange={(event) => setConfirmPassword(event.target.value)}
                 required
               />
+<button type="button" className="password-visibility-toggle" onClick={() => setShowConfirmPassword((visible) => !visible)} aria-label={showConfirmPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"} title={showConfirmPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}>{showConfirmPassword ? (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8M9.9 5.2A10.8 10.8 0 0112 5c5 0 8.5 4.5 9.5 7-.4 1-1.2 2.2-2.4 3.3M6.2 6.2C3.9 7.6 2.7 9.6 2.5 12c.5 1.2 1.4 2.5 2.8 3.6A10.7 10.7 0 0012 17c.8 0 1.6-.1 2.3-.3" /></svg>) : (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12S6 5 12 5s9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z" /><circle cx="12" cy="12" r="2.5" /></svg>)}</button>
+              </div>
             </div>
 
             {passwordMessage && (
@@ -309,9 +322,10 @@ const AccountSettings = () => {
               <label htmlFor="recovery-current-password">
                 كلمة المرور الحالية للتأكيد
               </label>
-              <input
+              <div className="password-input-wrapper">
+<input
                 id="recovery-current-password"
-                type="password"
+                type={showRecoveryCurrentPassword ? "text" : "password"}
                 autoComplete="current-password"
                 value={recoveryCurrentPassword}
                 onChange={(event) =>
@@ -319,6 +333,8 @@ const AccountSettings = () => {
                 }
                 required
               />
+<button type="button" className="password-visibility-toggle" onClick={() => setShowRecoveryCurrentPassword((visible) => !visible)} aria-label={showRecoveryCurrentPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"} title={showRecoveryCurrentPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}>{showRecoveryCurrentPassword ? (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8M9.9 5.2A10.8 10.8 0 0112 5c5 0 8.5 4.5 9.5 7-.4 1-1.2 2.2-2.4 3.3M6.2 6.2C3.9 7.6 2.7 9.6 2.5 12c.5 1.2 1.4 2.5 2.8 3.6A10.7 10.7 0 0012 17c.8 0 1.6-.1 2.3-.3" /></svg>) : (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12S6 5 12 5s9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z" /><circle cx="12" cy="12" r="2.5" /></svg>)}</button>
+              </div>
             </div>
 
             <div className="form-group">
