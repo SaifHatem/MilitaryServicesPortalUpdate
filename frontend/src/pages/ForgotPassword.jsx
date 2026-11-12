@@ -94,7 +94,7 @@ const ForgotPassword = () => {
         {step === 1 ? (
           <form onSubmit={handleVerify}>
             <p>
-              أدخل الرقم القومي والعبارة السرية التي سجلتها عند إنشاء الحساب.
+              أدخل الرقم القومي والجملة السرية التي سجلتها عند إنشاء الحساب.
             </p>
 
             <label htmlFor="recovery-national-id">الرقم القومي</label>
@@ -109,13 +109,13 @@ const ForgotPassword = () => {
               required
             />
 
-            <label htmlFor="recovery-phrase">العبارة السرية</label>
+            <label htmlFor="recovery-phrase">الجملة السرية</label>
             <input
               id="recovery-phrase"
               type="text"
               value={recoveryPhrase}
               onChange={(event) => setRecoveryPhrase(event.target.value)}
-              placeholder="أدخل العبارة السرية"
+              placeholder="أدخل الجملة السرية"
               autoComplete="off"
               required
             />
@@ -138,7 +138,7 @@ const ForgotPassword = () => {
         ) : (
           <form onSubmit={handleReset}>
             <p>
-              تم التحقق من العبارة السرية. أدخل كلمة المرور الجديدة. رمز
+              تم التحقق من الجملة السرية. أدخل كلمة المرور الجديدة. رمز
               الاستعادة صالح لمدة 5 دقائق.
             </p>
 
