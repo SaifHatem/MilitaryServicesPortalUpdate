@@ -2725,7 +2725,11 @@ body {
 }
 
 .auth-background-overlay {
-  background: linear-gradient(115deg, rgba(15, 35, 39, 0.82), rgba(28, 61, 62, 0.55));
+  background: linear-gradient(
+    115deg,
+    rgba(15, 35, 39, 0.82),
+    rgba(28, 61, 62, 0.55)
+  );
 }
 
 .auth-card {
@@ -3318,7 +3322,8 @@ body {
 .application-page .application-card,
 .application-page .user-correction-card,
 .application-page .admin-panel {
-  border-top: 3px solid color-mix(in srgb, var(--service-color, #527c78) 65%, white);
+  border-top: 3px solid
+    color-mix(in srgb, var(--service-color, #527c78) 65%, white);
 }
 
 .application-page .application-header-label,
@@ -3335,7 +3340,6 @@ body {
   color: var(--service-color, #527c78);
   background: color-mix(in srgb, var(--service-color, #527c78) 13%, white);
 }
-
 
 /* In-app notification bell and dropdown */
 .portal-notifications {
@@ -3390,7 +3394,7 @@ body {
   border: 1px solid #e5e7eb;
   border-radius: 15px;
   background: #fff;
-  box-shadow: 0 18px 48px rgba(15, 23, 42, .18);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.18);
   color: #1f2937;
 }
 .portal-notification-heading {
@@ -3462,4 +3466,17 @@ body {
     inset-inline-end: -8px;
     width: min(350px, calc(100vw - 20px));
   }
+}
+/* Remove colored background from Login and Register */
+.auth-page {
+  background: transparent !important;
+}
+
+.auth-background-video {
+  opacity: 1 !important;
+}
+
+.auth-background-overlay {
+  display: none !important;
+  background: transparent !important;
 }
