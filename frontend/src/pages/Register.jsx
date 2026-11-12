@@ -13,6 +13,7 @@ const Register = () => {
     email: "",
     serviceStatus: "",
     password: "",
+    confirmPassword: "",
     recoveryPhrase: "",
     confirmRecoveryPhrase: "",
   });
@@ -20,6 +21,8 @@ const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleChange = (event) => {
     setForm((previous) => ({
@@ -48,6 +51,11 @@ const Register = () => {
       return;
     }
 
+    if (form.password !== form.confirmPassword) {
+      setError("كلمتا المرور غير متطابقتين.");
+      return;
+    }
+
     if (form.recoveryPhrase.trim().length < 12) {
       setError("العبارة السرية يجب ألا تقل عن 12 حرفًا.");
       return;
@@ -64,8 +72,9 @@ const Register = () => {
     try {
       setLoading(true);
 
+      const { confirmPassword, ...registrationData } = form;
       await api.post("/auth/register", {
-        ...form,
+        ...registrationData,
         name: form.name.trim(),
         nationalId: form.nationalId.trim(),
         phoneNumber: form.phoneNumber.trim(),
@@ -175,17 +184,60 @@ const Register = () => {
           />
 
           <label htmlFor="register-password">كلمة المرور</label>
-          <input
-            id="register-password"
-            type="password"
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-            placeholder="8 أحرف على الأقل"
-            autoComplete="new-password"
-            minLength={8}
-            required
-          />
+          <div className="password-input-wrapper">
+            <input
+              id="register-password"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              value={form.password}
+              onChange={handleChange}
+              placeholder="8 أحرف على الأقل"
+              autoComplete="new-password"
+              minLength={8}
+              required
+            />
+            <button
+              type="button"
+              className="password-visibility-toggle"
+              onClick={() => setShowPassword((visible) => !visible)}
+              aria-label={showPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}
+              title={showPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}
+            >
+              {showPassword ? (
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8M9.9 5.2A10.8 10.8 0 0112 5c5 0 8.5 4.5 9.5 7-.4 1-1.2 2.2-2.4 3.3M6.2 6.2C3.9 7.6 2.7 9.6 2.5 12c.5 1.2 1.4 2.5 2.8 3.6A10.7 10.7 0 0012 17c.8 0 1.6-.1 2.3-.3" /></svg>
+              ) : (
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12S6 5 12 5s9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z" /><circle cx="12" cy="12" r="2.5" /></svg>
+              )}
+            </button>
+          </div>
+
+          <label htmlFor="register-confirm-password">تأكيد كلمة المرور</label>
+          <div className="password-input-wrapper">
+            <input
+              id="register-confirm-password"
+              type={showConfirmPassword ? "text" : "password"}
+              name="confirmPassword"
+              value={form.confirmPassword}
+              onChange={handleChange}
+              placeholder="أعد كتابة كلمة المرور"
+              autoComplete="new-password"
+              minLength={8}
+              required
+            />
+            <button
+              type="button"
+              className="password-visibility-toggle"
+              onClick={() => setShowConfirmPassword((visible) => !visible)}
+              aria-label={showConfirmPassword ? "إخفاء تأكيد كلمة المرور" : "إظهار تأكيد كلمة المرور"}
+              title={showConfirmPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}
+            >
+              {showConfirmPassword ? (
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8M9.9 5.2A10.8 10.8 0 0112 5c5 0 8.5 4.5 9.5 7-.4 1-1.2 2.2-2.4 3.3M6.2 6.2C3.9 7.6 2.7 9.6 2.5 12c.5 1.2 1.4 2.5 2.8 3.6A10.7 10.7 0 0012 17c.8 0 1.6-.1 2.3-.3" /></svg>
+              ) : (
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12S6 5 12 5s9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z" /><circle cx="12" cy="12" r="2.5" /></svg>
+              )}
+            </button>
+          </div>
 
           <hr />
 
