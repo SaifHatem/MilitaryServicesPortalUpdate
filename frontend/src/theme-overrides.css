@@ -1733,3 +1733,145 @@ html[data-theme="dark"] .status-correction { background: #5a3a1b; color: #fed7aa
   body { transition: none; }
   .portal-theme-toggle { transition: none; }
 }
+
+
+/* Final consistency pass for common components */
+.dashboard-card,
+.service-card-modern,
+.application-card-themed,
+.admin-application-card-themed,
+.service-details-header,
+.requirements-container,
+.form-section,
+.application-summary,
+.application-card,
+.users-management-card,
+.admin-stat-card {
+  border-radius: 16px;
+}
+.dashboard-card,
+.service-details-header,
+.requirements-container,
+.form-section,
+.application-summary,
+.application-card:not(.application-card-themed),
+.users-management-card,
+.admin-stat-card {
+  border-color: var(--portal-line, #e5e7eb);
+  box-shadow: var(--portal-card-shadow, 0 8px 24px rgba(15,23,42,.055));
+}
+.auth-card input:not([type="radio"]),
+.form-group input,
+.form-group select,
+.form-group textarea,
+.users-form-field input,
+.users-form-field select,
+.users-form-field textarea {
+  border-radius: 10px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+.auth-card input:focus,
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #64748b !important;
+  box-shadow: 0 0 0 3px rgba(100,116,139,.14) !important;
+}
+.dashboard-card button,
+.page-header button,
+.service-card-modern button,
+.start-application-button,
+.submit-application-button,
+.new-application-button,
+.empty-services-button,
+.view-application-button {
+  border-radius: 10px;
+  font-weight: 650;
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+.dashboard-card button:hover,
+.page-header button:hover,
+.start-application-button:hover,
+.submit-application-button:hover,
+.new-application-button:hover,
+.empty-services-button:hover,
+.view-application-button:hover {
+  transform: translateY(-1px);
+}
+.portal-nav a {
+  border-radius: 9px;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+.portal-app-header {
+  box-shadow: 0 5px 22px rgba(0,0,0,.13) !important;
+}
+.services-page-heading,
+.application-header,
+.admin-header,
+.users-management-header {
+  margin-bottom: 28px;
+}
+.service-small-title,
+.dashboard-eyebrow,
+.page-eyebrow {
+  letter-spacing: .01em;
+  font-weight: 700;
+}
+
+/* Dark mode coverage for notifications, account settings, and admin surfaces */
+html[data-theme="dark"] .portal-notification-panel,
+html[data-theme="dark"] .portal-notification-item,
+html[data-theme="dark"] .account-settings-card,
+html[data-theme="dark"] .account-settings-section,
+html[data-theme="dark"] .admin-applications-section,
+html[data-theme="dark"] .admin-application-card:not(.application-card-themed),
+html[data-theme="dark"] .users-table,
+html[data-theme="dark"] .users-table th,
+html[data-theme="dark"] .users-table td,
+html[data-theme="dark"] .users-form-field,
+html[data-theme="dark"] .users-password-wrapper {
+  background: var(--portal-surface) !important;
+  border-color: var(--portal-line) !important;
+  color: var(--portal-text) !important;
+}
+html[data-theme="dark"] .portal-notification-title,
+html[data-theme="dark"] .portal-notification-message,
+html[data-theme="dark"] .portal-notification-date,
+html[data-theme="dark"] .admin-section-header,
+html[data-theme="dark"] .admin-application-info h3,
+html[data-theme="dark"] .users-card-heading h2,
+html[data-theme="dark"] .users-form-field label,
+html[data-theme="dark"] .account-settings-card h2,
+html[data-theme="dark"] .account-settings-section h2 {
+  color: var(--portal-text) !important;
+}
+html[data-theme="dark"] .portal-notification-empty,
+html[data-theme="dark"] .admin-section-header p,
+html[data-theme="dark"] .users-card-heading p {
+  color: var(--portal-text-muted) !important;
+}
+html[data-theme="dark"] .portal-notification-item.is-unread {
+  background: #26364d !important;
+}
+html[data-theme="dark"] .portal-notification-heading {
+  border-color: var(--portal-line) !important;
+  color: var(--portal-text);
+}
+html[data-theme="dark"] .users-table tr,
+html[data-theme="dark"] .users-table thead,
+html[data-theme="dark"] .users-table tbody {
+  border-color: var(--portal-line) !important;
+}
+html[data-theme="dark"] .admin-application-meta,
+html[data-theme="dark"] .application-meta,
+html[data-theme="dark"] .summary-box strong,
+html[data-theme="dark"] .applicant-field strong {
+  color: #e5e7eb !important;
+}
+
+/* Preserve the intentionally dark, video-backed public header in either theme. */
+.portal-app-header:has(.portal-auth-area) .portal-theme-toggle-public {
+  color: #fff !important;
+  background: rgba(255,255,255,.15) !important;
+}
