@@ -462,18 +462,18 @@ button, a, .requirement-guidance-link, .document-card {
   align-items: center;
   gap: 8px;
   padding: 0 12px;
-  color: #fff;
+  color: #e8d7a5;
   text-align: center;
   font-size: clamp(15px, 1.7vw, 21px);
   font-weight: 700;
   line-height: 1.8;
-  text-shadow: 0 2px 12px rgba(0,0,0,.65);
+  text-shadow: 0 2px 12px rgba(0,0,0,.72);
   pointer-events: none;
 }
 .public-video-footer span {
   font-size: .88em;
   font-weight: 600;
-  color: rgba(255,255,255,.92);
+  color: rgba(245,239,222,.96);
 }
 @media (max-width: 600px) {
   .public-video-footer {
