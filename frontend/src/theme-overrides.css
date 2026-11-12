@@ -1326,3 +1326,24 @@ html body .services-page-modern .service-card-modern:hover {
 .portal-app-header:has(.portal-auth-area) .authority-brand-text h1 {
   color: #ffffff !important;
 }
+
+/* Force the entire logout button surface to be solid red */
+html body .portal-app-header .portal-user-actions > button.portal-logout-button,
+html body .portal-app-header .portal-user-actions > button.portal-logout-button:focus,
+html body .portal-app-header .portal-user-actions > button.portal-logout-button:active {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: #dc2626 !important;
+  background-color: #dc2626 !important;
+  background-image: none !important;
+  border: 1px solid #dc2626 !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+html body .portal-app-header .portal-user-actions > button.portal-logout-button:hover {
+  background: #b91c1c !important;
+  background-color: #b91c1c !important;
+  background-image: none !important;
+  border-color: #b91c1c !important;
+  color: #ffffff !important;
+}
