@@ -1183,3 +1183,78 @@ html body .services-page-modern .service-card-modern:hover {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+
+/* Register: keep the service-status heading outside its options box */
+.auth-layout-register .service-status-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  margin: 6px 0 3px;
+}
+
+.auth-layout-register .service-status-group > .service-status-label {
+  display: block;
+  margin: 0 !important;
+  padding: 0;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.auth-layout-register .service-status-fieldset {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+/* Keep the password visibility control centered completely inside its input */
+.auth-layout-register .password-input-wrapper {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.auth-layout-register .password-input-wrapper input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding-inline-end: 46px !important;
+}
+
+.auth-layout-register .password-input-wrapper .password-visibility-toggle {
+  position: absolute !important;
+  inset-inline-end: 8px !important;
+  inset-block-start: 50% !important;
+  z-index: 2;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 30px;
+  width: 30px !important;
+  min-width: 30px;
+  height: 30px !important;
+  min-height: 30px;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateY(-50%) !important;
+  border: 0 !important;
+  border-radius: 7px;
+  background: transparent !important;
+  color: #64748b !important;
+  line-height: 1 !important;
+  box-shadow: none !important;
+}
+
+.auth-layout-register .password-input-wrapper .password-visibility-toggle:hover {
+  background: #eef2f7 !important;
+  color: #1f2937 !important;
+}
+
+.auth-layout-register .password-input-wrapper .password-visibility-toggle svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
