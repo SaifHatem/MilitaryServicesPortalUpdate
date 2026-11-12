@@ -204,7 +204,7 @@ import { getServiceThemeStyle } from "../utils/serviceTheme";
 //                     عرض تفاصيل الطلب
 //                   </button>
 
-//                   {application.status === "draft" && (
+//                   {true && (
 //                     <button
 //                       className="delete-application-button"
 //                       onClick={() => handleDelete(application)}
