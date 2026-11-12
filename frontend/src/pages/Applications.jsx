@@ -432,7 +432,7 @@ function Applications() {
                     عرض تفاصيل الطلب
                   </button>
 
-                  {application.status === "draft" && (
+                  {true && (
                     <button
                       className="delete-application-button"
                       onClick={() => handleDelete(application)}
