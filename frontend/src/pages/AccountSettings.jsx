@@ -112,7 +112,7 @@ const AccountSettings = () => {
     setRecoveryError("");
 
     if (recoveryPhrase.trim().length < 12) {
-      setRecoveryError("العبارة السرية يجب ألا تقل عن 12 حرفًا.");
+      setRecoveryError("الجملة السرية يجب ألا تقل عن 12 حرفًا.");
       return;
     }
 
@@ -120,7 +120,7 @@ const AccountSettings = () => {
       recoveryPhrase.trim().toLowerCase() !==
       confirmRecoveryPhrase.trim().toLowerCase()
     ) {
-      setRecoveryError("تأكيد العبارة السرية غير مطابق.");
+      setRecoveryError("تأكيد الجملة السرية غير مطابق.");
       return;
     }
 
@@ -134,14 +134,14 @@ const AccountSettings = () => {
       });
 
       setRecoveryMessage(
-        response.data.message || "تم حفظ العبارة السرية بنجاح.",
+        response.data.message || "تم حفظ الجملة السرية بنجاح.",
       );
       setRecoveryCurrentPassword("");
       setRecoveryPhrase("");
       setConfirmRecoveryPhrase("");
     } catch (err) {
       setRecoveryError(
-        err.response?.data?.message || "حدث خطأ أثناء حفظ العبارة السرية.",
+        err.response?.data?.message || "حدث خطأ أثناء حفظ الجملة السرية.",
       );
     } finally {
       setSavingRecovery(false);
@@ -162,7 +162,7 @@ const AccountSettings = () => {
     <div className="dashboard">
       <main className="dashboard-content">
         <h1>إعدادات الحساب</h1>
-        <p>يمكنك تعديل بياناتك الشخصية وإدارة كلمة المرور والعبارة السرية.</p>
+        <p>يمكنك تعديل بياناتك الشخصية وإدارة كلمة المرور والجملة السرية.</p>
 
         <form onSubmit={handleSubmit} className="account-settings-form">
           <div className="form-group">
@@ -295,9 +295,9 @@ const AccountSettings = () => {
         </section>
 
         <section className="password-settings-section">
-          <h2>عبارة استعادة الحساب</h2>
+          <h2>الجملة السرية لاستعادة الحساب</h2>
           <p>
-            عيّن عبارة سرية واحفظها في مكان آمن. ستحتاج إليها لاستعادة حسابك إذا
+            عيّن جملة سرية واحفظها في مكان آمن. ستحتاج إليها لاستعادة حسابك إذا
             نسيت كلمة المرور. يجب ألا تقل عن 12 حرفًا.
           </p>
 
@@ -323,7 +323,7 @@ const AccountSettings = () => {
 
             <div className="form-group">
               <label htmlFor="account-recovery-phrase">
-                العبارة السرية الجديدة
+                الجملة السرية الجديدة
               </label>
               <input
                 id="account-recovery-phrase"
@@ -339,7 +339,7 @@ const AccountSettings = () => {
 
             <div className="form-group">
               <label htmlFor="account-confirm-recovery-phrase">
-                تأكيد العبارة السرية
+                تأكيد الجملة السرية
               </label>
               <input
                 id="account-confirm-recovery-phrase"
@@ -367,7 +367,7 @@ const AccountSettings = () => {
             )}
 
             <button type="submit" disabled={savingRecovery}>
-              {savingRecovery ? "جارٍ حفظ العبارة..." : "حفظ العبارة السرية"}
+              {savingRecovery ? "جارٍ حفظ الجملة..." : "حفظ الجملة السرية"}
             </button>
           </form>
         </section>
