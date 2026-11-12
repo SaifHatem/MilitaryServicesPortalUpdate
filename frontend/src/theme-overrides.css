@@ -1319,5 +1319,5 @@ html body .services-page-modern .service-card-modern:hover {
   transform: translateY(-1px);
 }
 .portal-app-header:has(.portal-auth-area) .authority-brand-text h1 {
-  color: #e8d7a5 !important;
+  color: #ffffff !important;
 }
