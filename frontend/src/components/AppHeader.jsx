@@ -13,10 +13,31 @@ const AppHeader = () => {
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem("portal-theme") || "light";
+    } catch {
+      return "light";
+    }
+  });
   const navigate = useNavigate();
   const location = useLocation();
   const isAuthenticationPage = ["/login", "/sign-in", "/register", "/forgot-password"].includes(location.pathname);
   const showAuthenticatedHeader = Boolean(user) && !isAuthenticationPage;
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    try {
+      localStorage.setItem("portal-theme", theme);
+    } catch {
+      // The selected theme still applies for the current session.
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((current) => current === "dark" ? "light" : "dark");
+  };
+
   useEffect(() => {
     if (!showAuthenticatedHeader) return undefined;
 
@@ -100,6 +121,16 @@ const AppHeader = () => {
             )}
           </nav>
           <div className="portal-user-actions">
+            <button
+              type="button"
+              className="portal-theme-toggle"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "تفعيل الوضع الفاتح" : "تفعيل الوضع الداكن"}
+              title={theme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}
+            >
+              <span aria-hidden="true">{theme === "dark" ? "☀️" : "🌙"}</span>
+              <span className="portal-theme-toggle-label">{theme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}</span>
+            </button>
             <div className="portal-notifications">
               <button
                 type="button"
@@ -168,6 +199,16 @@ const AppHeader = () => {
         </>
       ) : (
         <div className="portal-auth-area">
+          <button
+            type="button"
+            className="portal-theme-toggle portal-theme-toggle-public"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "تفعيل الوضع الفاتح" : "تفعيل الوضع الداكن"}
+            title={theme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}
+          >
+            <span aria-hidden="true">{theme === "dark" ? "☀️" : "🌙"}</span>
+            <span className="portal-theme-toggle-label">{theme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}</span>
+          </button>
           <form className="portal-inline-login" onSubmit={handleLogin}>
             <input
               type="text"
