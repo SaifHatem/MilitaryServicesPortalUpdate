@@ -199,16 +199,6 @@ const AppHeader = () => {
         </>
       ) : (
         <div className="portal-auth-area">
-          <button
-            type="button"
-            className="portal-theme-toggle portal-theme-toggle-public"
-            onClick={toggleTheme}
-            aria-label={theme === "dark" ? "تفعيل الوضع الفاتح" : "تفعيل الوضع الداكن"}
-            title={theme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}
-          >
-            <span aria-hidden="true">{theme === "dark" ? "☀️" : "🌙"}</span>
-            <span className="portal-theme-toggle-label">{theme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}</span>
-          </button>
           <form className="portal-inline-login" onSubmit={handleLogin}>
             <input
               type="text"
@@ -236,6 +226,16 @@ const AppHeader = () => {
           <div className="portal-auth-links">
             <NavLink to="/register" className="portal-register-link">إنشاء حساب جديد</NavLink>
             <NavLink to="/forgot-password" className="portal-forgot-link">نسيت كلمة المرور؟</NavLink>
+            <button
+              type="button"
+              className="portal-theme-toggle portal-theme-toggle-public"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "تفعيل الوضع الفاتح" : "تفعيل الوضع الداكن"}
+              title={theme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}
+            >
+              <span aria-hidden="true">{theme === "dark" ? "☀️" : "🌙"}</span>
+              <span className="portal-theme-toggle-label">{theme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}</span>
+            </button>
           </div>
           {loginError && <p className="portal-login-error" role="alert">{loginError}</p>}
         </div>
