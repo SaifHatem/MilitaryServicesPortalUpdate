@@ -453,7 +453,7 @@ const seedDatabase = async () => {
 
       {
         serviceId: serviceMap["كارنيهات النوادي"],
-        name: "شهادات ميلاد الأعضاء",
+        name: "شهادات ميلاد الأبناء",
         type: "image",
         required: true,
         minFiles: 1,
@@ -753,22 +753,40 @@ const seedDatabase = async () => {
       },
     );
 
-    // Each weapon-license requirement receives its own replaceable guidance PDF.
+    // Only these two weapon-license requirements should display a guidance statement.
     const weaponLicenseId = String(serviceMap["ترخيص السلاح"]);
+    const guidanceRequirementNames = new Set([
+      "إقرار بعدم استخراج ترخيص إضافة بحمل وإحراز سلاح من قبل",
+      "شهادة من إدارة شئون ضباط ق.م لترخيص السلاح",
+    ]);
+
     for (const requirement of requirements) {
-      if (String(requirement.serviceId) === weaponLicenseId) {
+      if (
+        String(requirement.serviceId) === weaponLicenseId &&
+        guidanceRequirementNames.has(requirement.name)
+      ) {
         requirement.guidanceFile = `/guides/weapon-license/requirement-${String(requirement.order || 0).padStart(2, "0")}.pdf`;
       }
     }
 
     // Idempotent upsert: preserves existing services, requirements and applications.
+    // Remove old guidance links from every other weapon-license requirement.
     for (const requirementData of requirements) {
+      const update = { $set: requirementData };
+
+      if (
+        String(requirementData.serviceId) === weaponLicenseId &&
+        !guidanceRequirementNames.has(requirementData.name)
+      ) {
+        update.$unset = { guidanceFile: "" };
+      }
+
       await ServiceRequirement.findOneAndUpdate(
         {
           serviceId: requirementData.serviceId,
           name: requirementData.name,
         },
-        { $set: requirementData },
+        update,
         { new: true, upsert: true, setDefaultsOnInsert: true },
       );
     }
