@@ -172,13 +172,13 @@ router.post("/register", async (req, res) => {
 
     if (phrase.length < 12 || phrase.length > 200) {
       return res.status(400).json({
-        message: "العبارة السرية يجب أن تكون بين 12 و200 حرف.",
+        message: "الجملة السرية يجب أن تكون بين 12 و200 حرف.",
       });
     }
 
     if (phrase !== phraseConfirmation) {
       return res.status(400).json({
-        message: "تأكيد العبارة السرية غير مطابق.",
+        message: "تأكيد الجملة السرية غير مطابق.",
       });
     }
 
@@ -440,13 +440,13 @@ router.patch("/recovery-phrase", authenticate, async (req, res) => {
 
     if (phrase.length < 12 || phrase.length > 200) {
       return res.status(400).json({
-        message: "العبارة السرية يجب أن تكون بين 12 و200 حرف.",
+        message: "الجملة السرية يجب أن تكون بين 12 و200 حرف.",
       });
     }
 
     if (phrase !== confirmation) {
       return res.status(400).json({
-        message: "تأكيد العبارة السرية غير مطابق.",
+        message: "تأكيد الجملة السرية غير مطابق.",
       });
     }
 
@@ -473,12 +473,12 @@ router.patch("/recovery-phrase", authenticate, async (req, res) => {
     await user.save();
 
     return res.json({
-      message: "تم حفظ العبارة السرية بنجاح.",
+      message: "تم حفظ الجملة السرية بنجاح.",
     });
   } catch (error) {
     console.error("Set recovery phrase error:", error);
     return res.status(500).json({
-      message: "حدث خطأ أثناء حفظ العبارة السرية.",
+      message: "حدث خطأ أثناء حفظ الجملة السرية.",
     });
   }
 });
@@ -494,7 +494,7 @@ router.post("/forgot-password/verify", async (req, res) => {
 
     if (!cleanNationalId || !phrase) {
       return res.status(400).json({
-        message: "راجع الرقم القومي والعبارة السرية.",
+        message: "راجع الرقم القومي والجملة السرية.",
       });
     }
 
@@ -519,7 +519,7 @@ router.post("/forgot-password/verify", async (req, res) => {
 
     if (!user || !matches) {
       return res.status(400).json({
-        message: "تعذر التحقق من البيانات. راجع الرقم القومي والعبارة السرية.",
+        message: "تعذر التحقق من البيانات. راجع الرقم القومي والجملة السرية.",
       });
     }
 
