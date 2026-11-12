@@ -157,7 +157,11 @@ const AppHeader = () => {
             <Link to="/account-settings" className="portal-icon-link">
               إعدادات الحساب
             </Link>
-            <button type="button" onClick={handleLogout}>
+            <button
+              type="button"
+              className="portal-logout-button"
+              onClick={handleLogout}
+            >
               تسجيل الخروج
             </button>
           </div>
