@@ -1258,3 +1258,56 @@ html body .services-page-modern .service-card-modern:hover {
   width: 18px;
   height: 18px;
 }
+
+
+/* Unified app bar theme across public, auth, and authenticated pages */
+.portal-app-header {
+  background: #111827 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.18) !important;
+  color: #ffffff !important;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.portal-app-header .authority-brand-text h1 {
+  color: #ffffff !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.22);
+}
+
+.portal-app-header .authority-brand-text p {
+  color: rgba(255, 255, 255, 0.76) !important;
+}
+
+.portal-app-header .portal-nav a,
+.portal-app-header .portal-icon-link,
+.portal-app-header .portal-user-name {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.portal-app-header .portal-nav a:hover,
+.portal-app-header .portal-nav a.active,
+.portal-app-header .portal-icon-link:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+.portal-app-header .portal-user-actions > button:not(.portal-notification-bell) {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  color: #ffffff !important;
+}
+
+.portal-app-header .portal-user-actions > button:not(.portal-notification-bell):hover {
+  background: rgba(255, 255, 255, 0.24) !important;
+}
+
+.portal-app-header .portal-notification-bell {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+.portal-app-header .portal-notification-bell:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+}
