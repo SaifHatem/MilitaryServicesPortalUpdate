@@ -1722,3 +1722,18 @@ html[data-theme="dark"] .admin-application-card-themed .admin-application-info h
   background: #f2a0a0 !important;
   border-color: #f2a0a0 !important;
 }
+
+
+/* Stronger, brighter gold emphasis for the public login landing statement */
+.public-video-footer {
+  color: #ffd76a !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 0 16px rgba(255, 194, 64, 0.38) !important;
+  letter-spacing: 0.15px;
+}
+
+.public-video-footer span {
+  color: #ffe6a0 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 0 12px rgba(255, 194, 64, 0.3) !important;
+}
