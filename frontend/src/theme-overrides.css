@@ -1737,3 +1737,69 @@ html[data-theme="dark"] .admin-application-card-themed .admin-application-info h
   font-weight: 800 !important;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 0 12px rgba(255, 194, 64, 0.3) !important;
 }
+
+
+/* Actual password input shown in the public header login form */
+.portal-inline-password {
+  position: relative !important;
+  display: block !important;
+  flex: 0 1 auto !important;
+  width: 165px !important;
+  min-width: 125px !important;
+}
+.portal-inline-password > input {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 40px !important;
+  padding-inline: 12px 42px !important;
+}
+.portal-inline-password > .portal-inline-password-toggle {
+  position: absolute !important;
+  inset-inline-end: 5px !important;
+  top: 50% !important;
+  z-index: 20 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 30px !important;
+  min-width: 30px !important;
+  height: 30px !important;
+  min-height: 30px !important;
+  margin: 0 !important;
+  padding: 4px !important;
+  transform: translateY(-50%) !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  color: #475569 !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}
+.portal-inline-password > .portal-inline-password-toggle:hover {
+  background: #e2e8f0 !important;
+  color: #1f2937 !important;
+}
+.portal-inline-password > .portal-inline-password-toggle svg {
+  display: block !important;
+  width: 19px !important;
+  height: 19px !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.8 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+@media (max-width: 780px) {
+  .portal-inline-password {
+    flex: 1 1 135px !important;
+    width: auto !important;
+  }
+}
+
+/* Use exactly the same bright gold on both lines of the welcome statement */
+.public-video-footer,
+.public-video-footer span {
+  color: #ffd76a !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 0 16px rgba(255, 194, 64, 0.38) !important;
+}
