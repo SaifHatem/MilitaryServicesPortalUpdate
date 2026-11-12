@@ -15,7 +15,8 @@ const AppHeader = () => {
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const showAuthenticatedHeader = Boolean(user) && location.pathname !== "/login";
+  const isAuthenticationPage = ["/login", "/sign-in", "/register", "/forgot-password"].includes(location.pathname);
+  const showAuthenticatedHeader = Boolean(user) && !isAuthenticationPage;
   useEffect(() => {
     if (!showAuthenticatedHeader) return undefined;
 
