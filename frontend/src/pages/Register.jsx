@@ -137,9 +137,10 @@ const Register = () => {
             required
           />
 
-          <fieldset className="service-status-fieldset">
-            <legend>حالة الضابط</legend>
-            <p>حدد الحالة الحالية حتى تظهر الخدمات المناسبة لحسابك.</p>
+          <div className="service-status-group">
+            <label className="service-status-label">حالة الضابط</label>
+            <fieldset className="service-status-fieldset">
+              <p>حدد الحالة الحالية حتى تظهر الخدمات المناسبة لحسابك.</p>
             <div className="service-status-options">
               <label className={`service-status-option ${form.serviceStatus === "active" ? "selected" : ""}`}>
                 <input
@@ -170,7 +171,8 @@ const Register = () => {
                 </span>
               </label>
             </div>
-          </fieldset>
+            </fieldset>
+          </div>
 
           <label htmlFor="register-email">البريد الإلكتروني (اختياري)</label>
           <input
