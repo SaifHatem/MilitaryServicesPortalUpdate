@@ -1115,3 +1115,71 @@ html body .services-page-modern .service-card-modern:hover {
     padding: 14px 15px;
   }
 }
+
+
+/* Registration form refinements */
+.auth-layout-register .service-status-fieldset {
+  min-height: 0;
+  padding: 10px 12px;
+}
+
+.auth-layout-register .service-status-fieldset > p {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 2px 0 9px;
+  overflow: visible;
+  white-space: normal;
+  line-height: 1.65;
+  font-size: 11px;
+}
+
+.auth-layout-register .service-status-fieldset legend {
+  padding-inline: 7px;
+  line-height: 1.5;
+}
+
+.auth-layout-register .password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.auth-layout-register .password-input-wrapper input {
+  width: 100%;
+  padding-inline-end: 42px !important;
+}
+
+.auth-layout-register .password-visibility-toggle {
+  position: absolute;
+  inset-inline-end: 5px;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 8px;
+  background: transparent !important;
+  color: #64748b !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.auth-layout-register .password-visibility-toggle:hover {
+  background: #eef2f7 !important;
+  color: #1f2937 !important;
+}
+
+.auth-layout-register .password-visibility-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
