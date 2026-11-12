@@ -46,7 +46,10 @@ const Login = () => {
           />
 
           <label htmlFor="login-password">كلمة المرور</label>
-          <div className="password-input-wrapper">
+          <div
+            className="password-input-wrapper"
+            style={{ position: "relative", width: "100%", display: "block" }}
+          >
             <input
               id="login-password"
               type={showPassword ? "text" : "password"}
@@ -55,9 +58,45 @@ const Login = () => {
               placeholder="أدخل كلمة المرور"
               autoComplete="current-password"
               required
+              style={{ width: "100%", paddingInlineEnd: "48px" }}
             />
-            <button type="button" className="password-visibility-toggle" onClick={() => setShowPassword((visible) => !visible)} aria-label={showPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"} title={showPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}>{showPassword ? (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8M9.9 5.2A10.8 10.8 0 0112 5c5 0 8.5 4.5 9.5 7-.4 1-1.2 2.2-2.4 3.3M6.2 6.2C3.9 7.6 2.7 9.6 2.5 12c.5 1.2 1.4 2.5 2.8 3.6A10.7 10.7 0 0012 17c.8 0 1.6-.1 2.3-.3" /></svg>) : (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12S6 5 12 5s9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z" /><circle cx="12" cy="12" r="2.5" /></svg>)}</button>
-          </div>
+            <button
+              type="button"
+              aria-label={showPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}
+              title={showPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}
+              onClick={() => setShowPassword((visible) => !visible)}
+              style={{
+                position: "absolute",
+                insetInlineEnd: "8px",
+                top: "50%",
+                zIndex: 10,
+                display: "grid",
+                placeItems: "center",
+                width: "32px",
+                height: "32px",
+                margin: 0,
+                padding: 0,
+                transform: "translateY(-50%)",
+                border: 0,
+                borderRadius: "7px",
+                background: "transparent",
+                color: "#64748b",
+                boxShadow: "none",
+                cursor: "pointer",
+              }}
+            >
+              {showPassword ? (
+                <svg viewBox="0 0 24 24" aria-hidden="true" style={{ width: 20, height: 20, fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" }}>
+                  <path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8M9.9 5.2A10.8 10.8 0 0112 5c5 0 8.5 4.5 9.5 7-.4 1-1.2 2.2-2.4 3.3M6.2 6.2C3.9 7.6 2.7 9.6 2.5 12c.5 1.2 1.4 2.5 2.8 3.6A10.7 10.7 0 0012 17c.8 0 1.6-.1 2.3-.3" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" aria-hidden="true" style={{ width: 20, height: 20, fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" }}>
+                  <path d="M2.5 12S6 5 12 5s9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z" />
+                  <circle cx="12" cy="12" r="2.5" />
+                </svg>
+              )}
+            </button>
+          </div>>
 
           <div style={{ textAlign: "left", margin: "10px 0" }}>
             <button
