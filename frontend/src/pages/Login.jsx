@@ -96,7 +96,7 @@ const Login = () => {
                 </svg>
               )}
             </button>
-          </div>>
+          </div>
 
           <div style={{ textAlign: "left", margin: "10px 0" }}>
             <button
