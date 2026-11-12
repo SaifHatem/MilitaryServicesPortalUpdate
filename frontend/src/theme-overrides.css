@@ -1598,3 +1598,56 @@ html[data-theme="dark"] .admin-application-card-themed .admin-application-info h
 html[data-theme="dark"] .admin-application-card-themed .admin-application-info h3 a {
   color: #263449 !important;
 }
+
+
+/* Shared password visibility control for every password field */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+.password-input-wrapper > input {
+  width: 100%;
+  min-width: 0;
+  padding-inline-end: 46px !important;
+}
+.password-input-wrapper .password-visibility-toggle {
+  position: absolute;
+  inset-inline-end: 8px;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  margin: 0;
+  padding: 5px;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 8px;
+  background: transparent !important;
+  color: #64748b !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+.password-input-wrapper .password-visibility-toggle:hover {
+  background: rgba(100, 116, 139, 0.12) !important;
+  color: #1f2937 !important;
+}
+.password-input-wrapper .password-visibility-toggle svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+[data-theme="dark"] .password-input-wrapper .password-visibility-toggle {
+  color: #cbd5e1 !important;
+}
