@@ -57,7 +57,7 @@ const Register = () => {
     }
 
     if (form.recoveryPhrase.trim().length < 12) {
-      setError("العبارة السرية يجب ألا تقل عن 12 حرفًا.");
+      setError("الجملة السرية يجب ألا تقل عن 12 حرفًا.");
       return;
     }
 
@@ -65,7 +65,7 @@ const Register = () => {
       form.recoveryPhrase.trim().toLowerCase() !==
       form.confirmRecoveryPhrase.trim().toLowerCase()
     ) {
-      setError("تأكيد العبارة السرية غير مطابق.");
+      setError("تأكيد الجملة السرية غير مطابق.");
       return;
     }
 
@@ -243,12 +243,12 @@ const Register = () => {
 
           <hr />
 
-          <h3>عبارة استعادة الحساب</h3>
+          <h3>الجملة السرية لاستعادة الحساب</h3>
           <p>
-            احفظ العبارة السرية في مكان آمن. ستحتاج إليها إذا نسيت كلمة المرور.
+            احفظ الجملة السرية في مكان آمن. ستحتاج إليها إذا نسيت كلمة المرور.
           </p>
 
-          <label htmlFor="recovery-phrase">العبارة السرية</label>
+          <label htmlFor="recovery-phrase">الجملة السرية</label>
           <input
             id="recovery-phrase"
             type="text"
@@ -262,14 +262,14 @@ const Register = () => {
             required
           />
 
-          <label htmlFor="confirm-recovery-phrase">تأكيد العبارة السرية</label>
+          <label htmlFor="confirm-recovery-phrase">تأكيد الجملة السرية</label>
           <input
             id="confirm-recovery-phrase"
             type="text"
             name="confirmRecoveryPhrase"
             value={form.confirmRecoveryPhrase}
             onChange={handleChange}
-            placeholder="أعد كتابة العبارة السرية"
+            placeholder="أعد كتابة الجملة السرية"
             autoComplete="off"
             minLength={12}
             maxLength={200}
