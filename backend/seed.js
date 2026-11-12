@@ -769,6 +769,12 @@ const seedDatabase = async () => {
       }
     }
 
+    // Remove the obsolete club requirement name so only the updated label remains.
+    await ServiceRequirement.deleteMany({
+      serviceId: serviceMap["كارنيهات النوادي"],
+      name: "شهادات ميلاد الأعضاء",
+    });
+
     // Idempotent upsert: preserves existing services, requirements and applications.
     // Remove old guidance links from every other weapon-license requirement.
     for (const requirementData of requirements) {
